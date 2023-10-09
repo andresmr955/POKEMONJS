@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOKEPON</title>
+    
 </head>
 <body>
     <h1>    MOKEPON 💦🔥🍁💨   </h1>
@@ -18,14 +19,14 @@
         <!--El atributo type se utiliza para especificar el tipo de entrada o elemento de formulario que se va a crear.-->
         <input type="radio"  name="mascota" id="Hipodoge">
         <label for="Ratigueya">Ratigueya</label>
-        <!--El atributo name en las etiquetas <input> se utiliza para darle un nombre al elemento. Este nombre es importante porque se utiliza para identificar el valor ingresado-->>
+        <!--El atributo name en las etiquetas <input> se utiliza para darle un nombre al elemento. Este nombre es importante porque se utiliza para identificar el valor ingresado-->
         <input type="radio" name="mascota" id="Ratigueya">
         <label for="Andresillo">Andresillo</label>
         <!--El atributo id en un elemento <input> (o en cualquier otro elemento HTML) se utiliza para proporcionar una identificación única -->
          <input type="radio" name="mascota" id="Andresillo">
         
         
-        <button>Seleccionar</button>
+        <button id="boton-mascota">Seleccionar</button>
     </section>
     <section id="seleccionar-ataque">
         <h2>Elige tu ataque:</h2>
@@ -34,10 +35,10 @@
         <!--Usamos la etiqueta span para elementos dinamicos porque se van a ir modificando-->
         <p>Tu mascota tiene <span>3</span> vidas</p>
         <p>La mascota del enemigo tiene <span>3</span> vidas</p>
-        <button><strong>Fire🔥</strong> </button>
-        <button><strong>water</strong> </button>
-        <button><strong>Earth🍁</strong> </button>
-        <button><strong>Wind 💨</strong> </button>
+        <button id="boton-Fire"><strong>Fire🔥</strong> </button>
+        <button id="boton-water"><strong>water 🌊</strong> </button>
+        <button id="boton-Earth"><strong>Earth🍁</strong> </button>
+        <button id="boton-Wind"><strong>Wind 💨</strong> </button>
     </P>
     <!-- La etiqueta <section> en HTML se utiliza para agrupar y definir secciones temáticas o de contenido en un documento HTML.-->
     </section>
@@ -47,6 +48,6 @@
     <section id="Reiniciar">
         <button>Reiniciar</button>
     </section>
-
+    <script src="./js/mokepon.js"></script>
 </body>
 </html>
