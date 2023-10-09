@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <script>
+        function aleatorio(min, max){
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        function eleccion(usuario){
+                if(usuario == 1){
+            return " 🪨"
+        }else if(usuario == 2){
+            return " 🧻"
+        }else if (usuario == 3){
+            return " ✂️"
+        }else{
+            return  jugador + "  la opcion incorrecta"
+        }
+            }
+      
+        let min = 1
+        let max = 3
+        let pc = aleatorio(1,3)
+        jugador = prompt("Elige: 1 para piedra, 2 para papel, 3 para tijera")
+        //alert("Elegiste " + jugador)
+
+       alert("Tu escogiste " + eleccion(parseInt(jugador))) 
+       alert("PC escogio " +  eleccion(parseInt(pc)))
+
+        //COMBATE
+        if(pc == jugador){
+            alert("Empate 🤝")
+        }else if(jugador == 1 && pc == 3||jugador == 2 && pc == 1|| jugador == 3 && pc == 2){
+            alert("Ganaste 🏆")
+        }else(
+            alert("Perdiste 🥺")
+        )
+
+    </script>
+</head>
+<body>
+    <h1>Rock, Paper, Scissors</h1>
+</body>
+</html>
