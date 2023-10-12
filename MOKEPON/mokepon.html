@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOKEPON</title>
-    
+
+    <!--Aqui es para ubicar el archivo js-->
+    <script src="./js/mokepon.js"></script>
 </head>
 <body>
     <h1>    MOKEPON 💦🔥🍁💨   </h1>
@@ -33,8 +36,8 @@
         <P>
         
         <!--Usamos la etiqueta span para elementos dinamicos porque se van a ir modificando-->
-        <p>Tu mascota tiene <span>3</span> vidas</p>
-        <p>La mascota del enemigo tiene <span>3</span> vidas</p>
+        <p>Tu mascota <span id="mascota-jugador"></span> tiene <span>3</span> vidas</p>
+        <p>La mascota del enemigo  <span id="mascota-enemigo"></span> tiene <span>3</span> vidas</p>
         <button id="boton-Fire"><strong>Fire🔥</strong> </button>
         <button id="boton-water"><strong>water 🌊</strong> </button>
         <button id="boton-Earth"><strong>Earth🍁</strong> </button>
@@ -48,6 +51,6 @@
     <section id="Reiniciar">
         <button>Reiniciar</button>
     </section>
-    <script src="./js/mokepon.js"></script>
+
 </body>
 </html>
