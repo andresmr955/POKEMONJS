@@ -1,6 +1,7 @@
 let ataqueJugador 
 let ataqueEnemigo 
-
+let VidasJugador = 3
+let vidasEnemigo = 3
 
 function iniciarJuego(){
     //El metodo getElementById nos sirve para llamar cualquier elemendo con el ID en especidifico
@@ -105,18 +106,32 @@ function ataqueAleatorioEnemigo() {
 //Logica para saber quien gano y quien perdio
 
 function combate(){
+
+    let spanVidasJugador = document.getElementById('vidas-jugador')
+    let spanVidasEnemigo = document.getElementById('vidas-enemigo')
+
     if(ataqueJugador === ataqueEnemigo){
         crearMensaje("Empate 🖖")
     }else if(ataqueJugador == 'Wind' && ataqueEnemigo == 'Water' ){
         crearMensaje("Ganaste 🏆")
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
     }else if(ataqueJugador == 'Water' && ataqueEnemigo == 'Fire' ){
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
         crearMensaje("Ganaste 🏆")
     }else if(ataqueJugador == 'Fire' && ataqueEnemigo == 'Earth' ){
+        spanVidasEnemigo.innerHTML = vidasEnemigo
+
         crearMensaje("Ganaste 🏆")
     }else if(ataqueJugador == 'Earth' && ataqueEnemigo == 'Wind' ){
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
         crearMensaje("Ganaste 🏆")
     }else{
         crearMensaje("Perdiste 😔")
+        VidasJugador--
+        spanVidasJugador.innerHTML = VidasJugador
     }
        
 }
