@@ -1,6 +1,7 @@
 let ataqueJugador 
 let ataqueEnemigo 
 
+
 function iniciarJuego(){
     //El metodo getElementById nos sirve para llamar cualquier elemendo con el ID en especidifico
     // Esta es la variable que creamos para seleccionar el boton mascota
@@ -15,7 +16,6 @@ function iniciarJuego(){
     let botonFuego = document.getElementById('boton-Fire')
     botonFuego.addEventListener('click', ataqueFuego)
      
-
     let botonAire = document.getElementById('boton-Wind')
     botonAire.addEventListener('click', ataqueAire)
     
@@ -67,28 +67,18 @@ function seleccionarMascotaEnemigo(){
 }
 //Aqui creamos estas funciones para modificar la variable global
         function ataqueFuego(){
-            let spanAtaqueJugador = document.getElementById("poder-jugador")
-            spanAtaqueJugador.innerHTML = "Fire"
             ataqueJugador =  "Fire"
-
             ataqueAleatorioEnemigo()
         }
         function ataqueAire(){
-            let spanAtaqueJugador = document.getElementById("poder-jugador")
-            spanAtaqueJugador.innerHTML = "Wind"
             ataqueJugador =  "Wind"
             ataqueAleatorioEnemigo()
         }
         function ataqueAgua(){
-            let spanAtaqueJugador = document.getElementById("poder-jugador")
-            spanAtaqueJugador.innerHTML = "Water"
             ataqueJugador =  "Water"
             ataqueAleatorioEnemigo()
         }
-        function ataqueTierra(){
-            let spanAtaqueJugador = document.getElementById("poder-jugador")
-            spanAtaqueJugador.innerHTML = "Earth"
-
+        function ataqueTierra(){  
             ataqueJugador =  "Earth"
             ataqueAleatorioEnemigo()
         }
@@ -97,24 +87,53 @@ function seleccionarMascotaEnemigo(){
 
 function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(1,4)
-    let spanAtaqueEnemigo = document.getElementById("poder-enemigo")
-
     if (ataqueAleatorio == 1) {
-        ataqueEnemigo = 'FUEGO'
-        spanAtaqueEnemigo.innerHTML = 'Fire'
+        ataqueEnemigo = 'Fire'
+        
     } else if (ataqueAleatorio == 2) {
-        ataqueEnemigo = 'AGUA'
-        spanAtaqueEnemigo.innerHTML = 'Water'
-
+        ataqueEnemigo = 'Water'
+        
     } else if (ataqueAleatorio == 3) {
-        ataqueEnemigo = 'AIRE'
-        spanAtaqueEnemigo.innerHTML = 'Wind'
-
+        ataqueEnemigo = 'Wind'
+         
     }else {
-        ataqueEnemigo = 'TIERRA'
-        spanAtaqueEnemigo.innerHTML = 'Earth'
+        ataqueEnemigo = 'Earth'
 
     }
+    combate()
+}
+//Logica para saber quien gano y quien perdio
+
+function combate(){
+    if(ataqueJugador === ataqueEnemigo){
+        crearMensaje("Empate 🖖")
+    }else if(ataqueJugador == 'Wind' && ataqueEnemigo == 'Water' ){
+        crearMensaje("Ganaste 🏆")
+    }else if(ataqueJugador == 'Water' && ataqueEnemigo == 'Fire' ){
+        crearMensaje("Ganaste 🏆")
+    }else if(ataqueJugador == 'Fire' && ataqueEnemigo == 'Earth' ){
+        crearMensaje("Ganaste 🏆")
+    }else if(ataqueJugador == 'Earth' && ataqueEnemigo == 'Wind' ){
+        crearMensaje("Ganaste 🏆")
+    }else{
+        crearMensaje("Perdiste 😔")
+    }
+       
+}
+
+
+//Creamos una nueva funcion para crear nuevos y nuevos mensajes
+
+function crearMensaje(resultado){
+
+    //Tengo que llamar la seccion de mensajes
+
+    let sectionMensajes = document.getElementById('mensajes')
+
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJugador + ', la mascota del enemigo ataco con ' + ataqueEnemigo + " " + resultado
+
+    sectionMensajes.appendChild(parrafo)
 }
 
 function aleatorio(min, max){
