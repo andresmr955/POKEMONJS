@@ -22,7 +22,6 @@ function iniciarJuego(){
     
 
 }
-
 function seleccionarMascotaJugador(){
     // Creamos estas variables para que sea mas legible el codigo y no sea tan extenso dentro del condicional y se pueden usar los metodos en las variables
     let inputHipodoge = document.getElementById('Hipodoge')
@@ -46,8 +45,6 @@ function seleccionarMascotaJugador(){
     //llamamos esta funcion aca debido a que queremos que llame la mascota del enemigo despues del jugador
     seleccionarMascotaEnemigo()
 }
-
-
 function seleccionarMascotaEnemigo(){
     //creamos esta variable para generar de manera automatica la mascota enemigo
     let mascotaAleatoria = aleatorio(1,4)
@@ -83,8 +80,6 @@ function seleccionarMascotaEnemigo(){
             ataqueJugador =  "Earth"
             ataqueAleatorioEnemigo()
         }
-
-
 
 function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(1,4)
@@ -133,9 +128,18 @@ function combate(){
         VidasJugador--
         spanVidasJugador.innerHTML = VidasJugador
     }
-       
+     revisarVidas()  
 }
 
+function revisarVidas(){
+  
+    if(vidasEnemigo == 0){
+        crearMensajeFinal("Felicitaciones Ganaste 🏆")
+    }else if(VidasJugador == 0){
+        console.log("Perdiste")
+        crearMensajeFinal("Lo siento, Perdiste 😔")
+    } 
+}
 
 //Creamos una nueva funcion para crear nuevos y nuevos mensajes
 
@@ -150,6 +154,20 @@ function crearMensaje(resultado){
 
     sectionMensajes.appendChild(parrafo)
 }
+
+// Creamos una nueva funcion para crear el mensaje Final
+function crearMensajeFinal(resultadoFinal){
+
+    //Tengo que llamar la seccion de mensajes
+
+    let sectionMensajes = document.getElementById('mensajes')
+
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = resultadoFinal
+
+    sectionMensajes.appendChild(parrafo)
+}
+
 
 function aleatorio(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min)
