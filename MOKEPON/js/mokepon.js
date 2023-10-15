@@ -4,6 +4,8 @@ let VidasJugador = 3
 let vidasEnemigo = 3
 
 function iniciarJuego(){
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'none'
     //El metodo getElementById nos sirve para llamar cualquier elemendo con el ID en especidifico
     // Esta es la variable que creamos para seleccionar el boton mascota
     let botonMascotaJugador = document.getElementById('boton-mascota')
@@ -22,8 +24,16 @@ function iniciarJuego(){
     let botonReiniciar = document.getElementById("Reiniciar")
     botonReiniciar.addEventListener('click', reiniciarJuego)
 
+    let sectionReiniciar = document.getElementById('Reiniciar')
+    sectionReiniciar.style.display = 'none'
+
 }
 function seleccionarMascotaJugador(){
+    let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+    sectionSeleccionarMascota.style.display = 'none'
+
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'block'
     // Creamos estas variables para que sea mas legible el codigo y no sea tan extenso dentro del condicional y se pueden usar los metodos en las variables
     let inputHipodoge = document.getElementById('Hipodoge')
     let inputCapipepo = document.getElementById('Capipepo')
@@ -102,6 +112,7 @@ function ataqueAleatorioEnemigo() {
 //Logica para saber quien gano y quien perdio
 
 function combate(){
+    
 
     let spanVidasJugador = document.getElementById('vidas-jugador')
     let spanVidasEnemigo = document.getElementById('vidas-enemigo')
@@ -158,6 +169,9 @@ function crearMensaje(resultado){
 
 // Creamos una nueva funcion para crear el mensaje Final
 function crearMensajeFinal(resultadoFinal){
+
+    let sectionReiniciar = document.getElementById('Reiniciar')
+    sectionReiniciar.style.display = 'block'
 
     //Tengo que llamar la seccion de mensajes
 

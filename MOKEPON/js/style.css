@@ -1,0 +1,11 @@
+/*
+.nombre es la clase
+#nombre es el id 
+o tambien puede ser la etiqueta h1 h2 o p 
+*/
+.titulo{
+    color: blue;
+    width: 400px;
+    height: 50px;
+    background-color: lightblue;
+}
