@@ -33,9 +33,20 @@ button{
 }
 
 
+.tarjeta-mokepon{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    padding: 10px;
+    box-sizing: border-box;
+}
 #seleccionar-mascota{
     display: flex;  /*Con esto le decimos que trabaje con la tecnologia de flex*/
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+input{
+    display: none;
 }
