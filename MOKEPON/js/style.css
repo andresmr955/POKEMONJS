@@ -2,13 +2,7 @@
 .nombre es la clase
 #nombre es el id 
 o tambien puede ser la etiqueta h1 h2 o p 
-*/
-.titulo{
-    color: blue;
-    width: 400px;
-    height: 50px;
-  
-}
+
 
 label {
     background-color:tomato;
@@ -28,4 +22,20 @@ button{
     width: 400px;
     height: 50px;
   
+}
+*/
+.titulo{
+    color: blue;
+    background-color: teal;
+    width: 310px;
+    height: 50px;
+  
+}
+
+
+#seleccionar-mascota{
+    display: flex;  /*Con esto le decimos que trabaje con la tecnologia de flex*/
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
