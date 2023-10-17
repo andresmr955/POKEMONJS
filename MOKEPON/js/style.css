@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap');
 /*
 .nombre es la clase
 #nombre es el id 
@@ -24,29 +25,91 @@ button{
   
 }
 */
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+    /* el border-box es mejor colocarlo de manera universal, no queremos que ninguna cajita cambie de tamaño y malogre todo nuestro estilo. */
+}
+
 .titulo{
-    color: blue;
-    background-color: teal;
-    width: 310px;
-    height: 50px;
-  
+    color: #0077b6; /* Cambiar el color del texto a uno más profesional */
+    background-color: #f2f2f2; /* Utilizar un fondo más suave que contraste bien con el color del texto */
+    width: 25%; /* Aprovechar todo el ancho disponible */
+    height: 60px; /* Aumentar la altura para que destaque */
+    display: flex; /* Utilizar flexbox para centrar vertical y horizontalmente el contenido */
+    align-items: center; /* Centrar verticalmente el contenido */
+    justify-content: center; /* Centrar horizontalmente el contenido */
+    font-size: 32px; /* Aumentar el tamaño del texto */
+    font-weight: bold; /* Hacer que el texto sea más audaz */
+    border: 2px solid #0077b6; /* Agregar un borde para definir el área del título */
+    border-radius: 98px; /* Redondear las esquinas del elemento */
+    padding: 10px; /* Agregar espacio interno para separar el contenido del borde */
+    margin-bottom: 20px; /* Agregar margen inferior para separar del contenido adyacente */
 }
 
-
+.subtitulo{
+    
+}
 .tarjeta-mokepon{
-    width: 100px;
-    height: 100px;
-    background-color: aquamarine;
-    padding: 10px;
+    width: 200px; /* Aumentar el ancho para un aspecto más llamativo */
+    height: 150px; /* Aumentar la altura para más espacio */
+    background-color: #1c684f; /* Cambiar el color de fondo a "agua marina" más estándar */
+    padding: 20px; /* Aumentar el relleno para más espacio interno */
     box-sizing: border-box;
+    margin: 10px;
+    border: 2px solid #06ca3499; /* Aumentar el grosor del borde y cambiar el color a uno más llamativo */
+    border-radius: 10px; /* Redondear las esquinas */
+    text-align: center; /* Centrar el contenido horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar el contenido verticalmente */
+    justify-content: center;
+    color: #fff; /* Cambiar el color del texto a blanco para que contraste con el fondo */
+    text-decoration: none; /* Eliminar el subrayado del texto */
+    cursor: pointer; /* Cambiar el cursor al estilo de un botón al pasar el ratón sobre él */
+    transition: background-color 0.3s, color 0.3s; /* Agregar una transición suave al cambiar el color de fondo y el texto */
 }
-#seleccionar-mascota{
+.tarjeta-mokepon img{
+    width: 80px;
+}
+
+.tarjetas{
+    display: flex;
+    gap: 10px; /*espaciado*/
+
+}
+
+
+
+.tarjeta-mokepon:hover {
+    background-color: #02990595; /* Cambiar el color de fondo al pasar el ratón sobre él */
+  }
+
+
+  
+  #seleccionar-mascota, #seleccionar-ataque {
     display: flex;  /*Con esto le decimos que trabaje con la tecnologia de flex*/
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
+ 
 
 input{
     display: none;
+}
+
+body{
+    background-image: url(./img/imagenfondo.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family: 'Fredoka', sans-serif;
+    text-align: center;
+    padding: 20px;
+      
 }
