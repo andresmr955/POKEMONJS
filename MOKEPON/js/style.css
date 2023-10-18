@@ -1,41 +1,25 @@
+/* Importaciones de Fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Poppins:ital,wght@0,100;0,500;1,700&display=swap');
 
+/* Reglas para Etiquetas */
 /*
 .nombre es la clase
 #nombre es el id 
-o tambien puede ser la etiqueta h1 h2 o p 
-
-
-label {
-    background-color:tomato;
-    width: 400px;
-    height: 50px;
-}
-
-input {
-    background-color:aqua ;
-    width: 400px;
-    height: 50px;
-  
-}
-
-button{
-    background-color: violet;
-    width: 400px;
-    height: 50px;
-  
-}
+o también puede ser la etiqueta h1 h2 o p 
 */
 
+
+/* Estilos Universales */
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-    /* el border-box es mejor colocarlo de manera universal, no queremos que ninguna cajita cambie de tamaño y malogre todo nuestro estilo. */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* El border-box es mejor colocarlo de manera universal, no queremos que ninguna caja cambie de tamaño y malogre todo nuestro estilo. */
 }
 
-.titulo{
+/* Clase .titulo */
+.titulo {
     color: #0077b6; /* Cambiar el color del texto a uno más profesional */
     background-color: #f2f2f2; /* Utilizar un fondo más suave que contraste bien con el color del texto */
     width: 25%; /* Aprovechar todo el ancho disponible */
@@ -51,10 +35,13 @@ button{
     margin-bottom: 20px; /* Agregar margen inferior para separar del contenido adyacente */
 }
 
-.subtitulo{
-    
+/* Clase .subtitulo */
+.subtitulo {
+    /* Agregar estilos para .subtitulo si es necesario */
 }
-.tarjeta-mokepon{
+
+/* Clase .tarjeta-mokepon */
+.tarjeta-mokepon {
     width: 200px; /* Aumentar el ancho para un aspecto más llamativo */
     height: 150px; /* Aumentar la altura para más espacio */
     background-color: #1c684f; /* Cambiar el color de fondo a "agua marina" más estándar */
@@ -73,24 +60,25 @@ button{
     cursor: pointer; /* Cambiar el cursor al estilo de un botón al pasar el ratón sobre él */
     transition: background-color 0.3s, color 0.3s; /* Agregar una transición suave al cambiar el color de fondo y el texto */
 }
-.tarjeta-mokepon img{
+
+/* Estilos para imágenes dentro de .tarjeta-mokepon */
+.tarjeta-mokepon img {
     width: 80px;
 }
 
-.tarjetas{
+/* Clase .tarjetas */
+.tarjetas {
     display: flex;
-    gap: 10px; /*espaciado*/
-
+    gap: 10px; /* Espaciado */
 }
 
-
-
+/* Estilos en Hover para .tarjeta-mokepon */
 .tarjeta-mokepon:hover {
     background-color: #02990595; /* Cambiar el color de fondo al pasar el ratón sobre él */
-  }
+}
 
-
-  #boton-mascota {
+/* ID #boton-mascota */
+#boton-mascota {
     width: 180px;
     height: 40px;
     border-color: white; /* Quitamos el borde para un aspecto más limpio */
@@ -106,25 +94,28 @@ button{
     margin-top: 100px;
 }
 
+/* Estilos en Hover para #boton-mascota */
 #boton-mascota:hover {
     background-color: #156c557c; /* Cambiamos el color de fondo al pasar el ratón por encima */
     color: #fff; /* Cambiamos el color del texto al pasar el ratón por encima */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agregamos una sombra al botón en hover para un efecto tridimensional */
 }
 
-#seleccionar-mascota, #seleccionar-ataque {
-    display: flex;  /*Con esto le decimos que trabaje con la tecnologia de flex*/
+/* ID #seleccionar-mascota y #seleccionar-ataque */
+#seleccionar-mascota{
+    display: flex;  /* Con esto le decimos que trabaje con la tecnología de flex */
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
- 
 
-input{
+/* Estilos para elementos <input> */
+input {
     display: none;
 }
 
-body{
+/* Estilos Globales para el Body */
+body {
     background-image: url(./img/imagenfondo.jpg);
     background-size: cover;
     background-position: center center;
@@ -134,5 +125,4 @@ body{
     font-family: 'Fredoka', sans-serif;
     text-align: center;
     padding: 20px;
-      
 }
