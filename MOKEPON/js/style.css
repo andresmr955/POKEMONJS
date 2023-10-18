@@ -76,6 +76,19 @@ o también puede ser la etiqueta h1 h2 o p
 .tarjeta-mokepon:hover {
     background-color: #02990595; /* Cambiar el color de fondo al pasar el ratón sobre él */
 }
+.boton-ataque{
+    background-color: rgba(6, 45, 174, 0.628); /* Cambiamos el color a un tono rojo que es común en elementos de videojuegos */
+    color: #fff; /* Cambiamos el color del texto a blanco para mejorar la legibilidad */
+    border: 2px solid #072192ba; /* Añadimos un borde rojo */
+    border-radius: 25px; /* Agregamos bordes redondeados */
+    border-color: rgba(255, 255, 255, 0.594);
+    padding: 10px 20px; /* Aumentamos el espacio interno del botón para que sea más grande y legible */
+    font-size: 16px; /* Ajustamos el tamaño del texto */
+}
+.boton-ataque:hover {
+    background-color: #05218ea0; /* Cambiar el color de fondo al pasar el ratón sobre él */
+}
+
 
 /* ID #boton-mascota */
 #boton-mascota {
@@ -108,6 +121,11 @@ o también puede ser la etiqueta h1 h2 o p
     flex-direction: column;
     align-items: center;
 }
+#seleccionar-ataque{
+   
+    flex-direction: column; /*de arriba para abaho*/
+    align-items: center;
+}
 
 /* Estilos para elementos <input> */
 input {
@@ -126,3 +144,4 @@ body {
     text-align: center;
     padding: 20px;
 }
+
