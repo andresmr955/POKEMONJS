@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Poppins:ital,wght@0,100;0,500;1,700&display=swap');
+
 /*
 .nombre es la clase
 #nombre es el id 
@@ -88,8 +90,29 @@ button{
   }
 
 
-  
-  #seleccionar-mascota, #seleccionar-ataque {
+  #boton-mascota {
+    width: 180px;
+    height: 40px;
+    border-color: white; /* Quitamos el borde para un aspecto más limpio */
+    border-radius: 20px;
+    background-color: #1c684f;
+    color: white;
+    font-size: 16px; /* Aumentamos el tamaño del texto para una mejor legibilidad */
+    font-weight: bold; /* Hacemos el texto en negrita para destacarlo */
+    margin: 30px 20px 10px 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 100px;
+}
+
+#boton-mascota:hover {
+    background-color: #156c557c; /* Cambiamos el color de fondo al pasar el ratón por encima */
+    color: #fff; /* Cambiamos el color del texto al pasar el ratón por encima */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agregamos una sombra al botón en hover para un efecto tridimensional */
+}
+
+#seleccionar-mascota, #seleccionar-ataque {
     display: flex;  /*Con esto le decimos que trabaje con la tecnologia de flex*/
     justify-content: center;
     flex-direction: column;
