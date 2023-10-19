@@ -127,6 +127,42 @@ o también puede ser la etiqueta h1 h2 o p
     align-items: center;
 }
 
+#mensajes{
+    width: 180px;
+    background: rgba(3, 8, 145, 0.652);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#boton-reiniciar {
+    margin-top: 20px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #boton-reiniciar:hover {
+    background-color: #2980b9;
+  }
+  
+  #boton-reiniciar:focus {
+    outline: none;
+  }
+  
+  #boton-reiniciar:active {
+    background-color: #1f6690;
+  }
+  
+
 /* Estilos para elementos <input> */
 input {
     display: none;

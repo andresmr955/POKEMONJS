@@ -159,12 +159,21 @@ function crearMensaje(resultado){
 
     //Tengo que llamar la seccion de mensajes
 
-    let sectionMensajes = document.getElementById('mensajes')
+    let sectionMensajes = document.getElementById('resultado')
+    let ataquesDelJugador= document.getElementById('ataques-jugador')
+    let ataquesDelEnemigo = document.getElementById('ataques-enemigo')
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJugador + ', la mascota del enemigo ataco con ' + ataqueEnemigo + " " + resultado
+   
+    let nuevoAtaqueJugador = document.createElement('p')
+    let nuevoAtaqueEnemigo = document.createElement('p')
 
-    sectionMensajes.appendChild(parrafo)
+    sectionMensajes.innerHTML = resultado
+    nuevoAtaqueJugador.innerHTML = ataqueJugador 
+    nuevoAtaqueEnemigo.innerHTML = ataqueEnemigo
+
+    ataquesDelJugador.appendChild(nuevoAtaqueJugador)
+    ataquesDelEnemigo.appendChild(nuevoAtaqueEnemigo)
+
 }
 
 // Creamos una nueva funcion para crear el mensaje Final
@@ -175,12 +184,9 @@ function crearMensajeFinal(resultadoFinal){
 
     //Tengo que llamar la seccion de mensajes
 
-    let sectionMensajes = document.getElementById('mensajes')
+    let sectionMensajes = document.getElementById('resultado')
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = resultadoFinal
-
-    sectionMensajes.appendChild(parrafo)
+    sectionMensajes.innerHTML = resultadoFinal
 
     let botonAgua = document.getElementById('boton-Water')
     botonAgua.disabled = true
