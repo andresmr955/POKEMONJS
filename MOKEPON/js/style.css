@@ -61,6 +61,9 @@ o también puede ser la etiqueta h1 h2 o p
     margin: 5px; /* Espacio entre elementos */
     color: #000; /* Color del texto */
     text-align: center; /* Alineación del texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
   }
   
@@ -108,7 +111,7 @@ o también puede ser la etiqueta h1 h2 o p
 }
 
 /* Clase .tarjetas */
-.tarjetas {
+.tarjetas, .tarjetas-ataques {
     display: flex;
     gap: 10px; /* Espaciado */
 }
@@ -222,3 +225,9 @@ body {
     padding: 20px;
 }
 
+@media (max-width: 360px){
+    .tarjetas, .tarjetas-ataques{
+        flex-direction: column;
+    }
+   
+}
