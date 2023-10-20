@@ -40,6 +40,47 @@ o también puede ser la etiqueta h1 h2 o p
     /* Agregar estilos para .subtitulo si es necesario */
 }
 
+.ataques {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    gap: 10px; /* Espacio entre los elementos */
+    margin-top: 25px;
+    background-color: #0073e6; /* Azul personalizado */
+    padding: 15px; /* Espacio interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: center; /* Alineación del texto */
+  }
+  
+  /* Estilos para los elementos dentro de la caja de ataques */
+  .ataques-item {
+    background-color: #5dc4f0b4; /* Fondo de los elementos */
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5px; /* Espacio entre elementos */
+    color: #000; /* Color del texto */
+    text-align: center; /* Alineación del texto */
+
+  }
+  
+  .nombre-mascota{
+    display: flex;
+    gap: 10px;
+    background-color: #094167;
+    width: 75px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    color: #f4ebeb;
+    align-items: center;
+    justify-content: center;
+}
+  
+  /* Agrega estos estilos a tus elementos HTML según corresponda */
+  
+
 /* Clase .tarjeta-mokepon */
 .tarjeta-mokepon {
     width: 200px; /* Aumentar el ancho para un aspecto más llamativo */
