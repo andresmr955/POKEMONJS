@@ -151,6 +151,8 @@ o también puede ser la etiqueta h1 h2 o p
     margin-top: 100px;
 }
 
+
+
 /* Estilos en Hover para #boton-mascota */
 #boton-mascota:hover {
     background-color: #156c557c; /* Cambiamos el color de fondo al pasar el ratón por encima */
@@ -210,6 +212,11 @@ o también puede ser la etiqueta h1 h2 o p
 /* Estilos para elementos <input> */
 input {
     display: none;
+      transition: background-color 0.3s ease; /* Agrega una transición suave al cambio de color de fondo */
+}
+
+input:checked + label{
+  background-color: #02990595; /* Cambia el color de fondo cuando se selecciona */
 }
 
 /* Estilos Globales para el Body */
