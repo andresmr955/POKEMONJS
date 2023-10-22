@@ -1,45 +1,56 @@
-let ataqueJugador 
-let ataqueEnemigo 
+// dejamos todas las variables de primeras
+//Es una variable que no va cambiar
+const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+const botonMascotaJugador = document.getElementById('boton-mascota')
+const botonAgua = document.getElementById('boton-Water')
+const botonTierra = document.getElementById('boton-Earth')
+const botonFuego = document.getElementById('boton-Fire')
+const botonAire = document.getElementById('boton-Wind')
+const botonReiniciar = document.getElementById("Reiniciar")
+const sectionReiniciar = document.getElementById('Reiniciar')
+const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+const inputHipodoge = document.getElementById('Hipodoge')
+const inputCapipepo = document.getElementById('Capipepo')
+const inputRatigueya = document.getElementById('Ratigueya')
+const inputAndresillo = document.getElementById('Andresillo')
+const mascotaSpanJugador = document.getElementById('mascota-jugador')
+const mascotaSpanEnemigo = document.getElementById('mascota-enemigo')
+const spanVidasJugador = document.getElementById('vidas-jugador')
+const spanVidasEnemigo = document.getElementById('vidas-enemigo')
+const sectionMensajes = document.getElementById('resultado')
+const ataquesDelJugador= document.getElementById('ataques-jugador')
+const ataquesDelEnemigo = document.getElementById('ataques-enemigo')
+//let es una variable que va estar cambiando 
+let ataqueJugador
+let ataqueEnemigo
 let VidasJugador = 3
 let vidasEnemigo = 3
 
 function iniciarJuego(){
-    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+
     sectionSeleccionarAtaque.style.display = 'none'
     //El metodo getElementById nos sirve para llamar cualquier elemendo con el ID en especidifico
     // Esta es la variable que creamos para seleccionar el boton mascota
-    let botonMascotaJugador = document.getElementById('boton-mascota')
+
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
 //En esta funcion llamamos los botones de los poderes para despues llamar el ataque jugador
 
-    let botonAgua = document.getElementById('boton-Water')
+
     botonAgua.addEventListener('click', ataqueAgua)
-    let botonTierra = document.getElementById('boton-Earth')
     botonTierra.addEventListener('click', ataqueTierra)
-    let botonFuego = document.getElementById('boton-Fire')
     botonFuego.addEventListener('click', ataqueFuego)
-     
-    let botonAire = document.getElementById('boton-Wind')
     botonAire.addEventListener('click', ataqueAire)
-    let botonReiniciar = document.getElementById("Reiniciar")
     botonReiniciar.addEventListener('click', reiniciarJuego)
-
-    let sectionReiniciar = document.getElementById('Reiniciar')
     sectionReiniciar.style.display = 'none'
-
 }
 function seleccionarMascotaJugador(){
-    let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+    
     sectionSeleccionarMascota.style.display = 'none'
 
-    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    
     sectionSeleccionarAtaque.style.display = 'flex'
     // Creamos estas variables para que sea mas legible el codigo y no sea tan extenso dentro del condicional y se pueden usar los metodos en las variables
-    let inputHipodoge = document.getElementById('Hipodoge')
-    let inputCapipepo = document.getElementById('Capipepo')
-    let inputRatigueya = document.getElementById('Ratigueya')
-    let inputAndresillo = document.getElementById('Andresillo')
-    let mascotaSpanJugador = document.getElementById('mascota-jugador')
+   
 
     if(inputHipodoge.checked){
         mascotaSpanJugador.innerHTML = 'Hipodoge'
@@ -59,7 +70,6 @@ function seleccionarMascotaJugador(){
 function seleccionarMascotaEnemigo(){
     //creamos esta variable para generar de manera automatica la mascota enemigo
     let mascotaAleatoria = aleatorio(1,4)
-    let mascotaSpanEnemigo = document.getElementById('mascota-enemigo')
 
         if(mascotaAleatoria == 1){
             mascotaSpanEnemigo.innerHTML = 'Hipodoge'
@@ -87,7 +97,7 @@ function seleccionarMascotaEnemigo(){
             ataqueJugador =  "Water"
             ataqueAleatorioEnemigo()
         }
-        function ataqueTierra(){  
+        function ataqueTierra(){
             ataqueJugador =  "Earth"
             ataqueAleatorioEnemigo()
         }
@@ -96,13 +106,13 @@ function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(1,4)
     if (ataqueAleatorio == 1) {
         ataqueEnemigo = 'Fire'
-        
+
     } else if (ataqueAleatorio == 2) {
         ataqueEnemigo = 'Water'
-        
+
     } else if (ataqueAleatorio == 3) {
         ataqueEnemigo = 'Wind'
-         
+
     }else {
         ataqueEnemigo = 'Earth'
 
@@ -112,11 +122,6 @@ function ataqueAleatorioEnemigo() {
 //Logica para saber quien gano y quien perdio
 
 function combate(){
-    
-
-    let spanVidasJugador = document.getElementById('vidas-jugador')
-    let spanVidasEnemigo = document.getElementById('vidas-enemigo')
-
     if(ataqueJugador === ataqueEnemigo){
         crearMensaje("Empate 🖖")
     }else if(ataqueJugador == 'Wind' && ataqueEnemigo == 'Water' ){
@@ -140,17 +145,17 @@ function combate(){
         VidasJugador--
         spanVidasJugador.innerHTML = VidasJugador
     }
-     revisarVidas()  
+     revisarVidas()
 }
 
 function revisarVidas(){
-  
+
     if(vidasEnemigo == 0){
         crearMensajeFinal("Felicitaciones Ganaste 🏆")
     }else if(VidasJugador == 0){
         console.log("Perdiste")
         crearMensajeFinal("Lo siento, Perdiste 😔")
-    } 
+    }
 }
 
 //Creamos una nueva funcion para crear nuevos y nuevos mensajes
@@ -158,17 +163,11 @@ function revisarVidas(){
 function crearMensaje(resultado){
 
     //Tengo que llamar la seccion de mensajes
-
-    let sectionMensajes = document.getElementById('resultado')
-    let ataquesDelJugador= document.getElementById('ataques-jugador')
-    let ataquesDelEnemigo = document.getElementById('ataques-enemigo')
-
-   
     let nuevoAtaqueJugador = document.createElement('p')
     let nuevoAtaqueEnemigo = document.createElement('p')
 
     sectionMensajes.innerHTML = resultado
-    nuevoAtaqueJugador.innerHTML = ataqueJugador 
+    nuevoAtaqueJugador.innerHTML = ataqueJugador
     nuevoAtaqueEnemigo.innerHTML = ataqueEnemigo
 
     ataquesDelJugador.appendChild(nuevoAtaqueJugador)
@@ -179,23 +178,23 @@ function crearMensaje(resultado){
 // Creamos una nueva funcion para crear el mensaje Final
 function crearMensajeFinal(resultadoFinal){
 
-    let sectionReiniciar = document.getElementById('Reiniciar')
+    
     sectionReiniciar.style.display = 'block'
 
     //Tengo que llamar la seccion de mensajes
 
-    let sectionMensajes = document.getElementById('resultado')
+    
 
     sectionMensajes.innerHTML = resultadoFinal
 
-    let botonAgua = document.getElementById('boton-Water')
+    
     botonAgua.disabled = true
-    let botonTierra = document.getElementById('boton-Earth')
+    
     botonTierra.disabled = true
-    let botonFuego = document.getElementById('boton-Fire')
+    
     botonFuego.disabled = true
-     
-    let botonAire = document.getElementById('boton-Wind')
+
+    
     botonAire.disabled = true
 }
 
