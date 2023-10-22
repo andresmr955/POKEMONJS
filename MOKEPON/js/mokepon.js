@@ -25,6 +25,23 @@ let ataqueJugador
 let ataqueEnemigo
 let VidasJugador = 3
 let vidasEnemigo = 3
+//Las clases inician con mayusculas
+class Mokepon {
+    constructor(nombre, foto, vida){
+        this.nombre = nombre
+        this.foto = foto
+        this.vida = vida
+    }
+}
+
+let Capipepo = new Mokepon('Capipepo', './js/img/mokepons_mokepon_capipepo_attack.png', 5)
+console.log(Capipepo)
+
+let Hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 4)
+
+let Ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 3)
+
+let Andresillo = new Mokepon('Andresillo', './js/img/images.png', 2)
 
 function iniciarJuego(){
 
@@ -47,7 +64,6 @@ function seleccionarMascotaJugador(){
     
     sectionSeleccionarMascota.style.display = 'none'
 
-    
     sectionSeleccionarAtaque.style.display = 'flex'
     // Creamos estas variables para que sea mas legible el codigo y no sea tan extenso dentro del condicional y se pueden usar los metodos en las variables
    
@@ -183,11 +199,8 @@ function crearMensajeFinal(resultadoFinal){
 
     //Tengo que llamar la seccion de mensajes
 
-    
-
     sectionMensajes.innerHTML = resultadoFinal
 
-    
     botonAgua.disabled = true
     
     botonTierra.disabled = true
