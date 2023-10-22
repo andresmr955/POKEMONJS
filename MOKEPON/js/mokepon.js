@@ -21,6 +21,7 @@ const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador= document.getElementById('ataques-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-enemigo')
 //let es una variable que va estar cambiando 
+let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
 let VidasJugador = 3
@@ -34,14 +35,13 @@ class Mokepon {
     }
 }
 
-let Capipepo = new Mokepon('Capipepo', './js/img/mokepons_mokepon_capipepo_attack.png', 5)
-console.log(Capipepo)
+let capipepo = new Mokepon('Capipepo', './js/img/mokepons_mokepon_capipepo_attack.png', 5)
+let hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 4)
+let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 3)
+let andresillo = new Mokepon('Andresillo', './js/img/images.png', 2)
 
-let Hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 4)
-
-let Ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 3)
-
-let Andresillo = new Mokepon('Andresillo', './js/img/images.png', 2)
+mokepones.push(capipepo,hipodoge,ratigueya,andresillo)
+console.log(mokepones)
 
 function iniciarJuego(){
 
