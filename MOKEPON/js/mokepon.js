@@ -32,6 +32,7 @@ class Mokepon {
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
+        this.ataques = []
     }
 }
 
@@ -41,7 +42,34 @@ let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_at
 let andresillo = new Mokepon('Andresillo', './js/img/images.png', 2)
 
 mokepones.push(capipepo,hipodoge,ratigueya,andresillo)
-console.log(mokepones)
+capipepo.ataques.push(
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '💨', id: 'boton-Wind'},
+)
+hipodoge.ataques.push(
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '💨', id: 'boton-Wind'},
+)
+ratigueya.ataques.push(
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '💨', id: 'boton-Wind'},
+)
+andresillo.ataques.push(
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '💨', id: 'boton-Wind'},
+)
 
 function iniciarJuego(){
 
