@@ -20,10 +20,13 @@ const spanVidasEnemigo = document.getElementById('vidas-enemigo')
 const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador= document.getElementById('ataques-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-enemigo')
+const contenedorTarjetas = document.getElementById('contenedor-tarjetas')
 //let es una variable que va estar cambiando 
 let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
+let opcionDeMokepones 
+
 let VidasJugador = 3
 let vidasEnemigo = 3
 //Las clases inician con mayusculas
@@ -41,7 +44,6 @@ let hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attac
 let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 3)
 let andresillo = new Mokepon('Andresillo', './js/img/images.png', 2)
 
-mokepones.push(capipepo,hipodoge,ratigueya,andresillo)
 capipepo.ataques.push(
     {nombre: '🍁', id: 'boton-Earth'},
     {nombre: '🍁', id: 'boton-Earth'},
@@ -71,9 +73,23 @@ andresillo.ataques.push(
     {nombre: '💨', id: 'boton-Wind'},
 )
 
+
+mokepones.push(hipodoge, capipepo, ratigueya,andresillo)
+
 function iniciarJuego(){
 
     sectionSeleccionarAtaque.style.display = 'none'
+    //metodo que nos ayuda a iterar o recorrer nuestros objetos 
+
+    mokepones.forEach((mokepon) => {
+        opcionDeMokepones = `<!--La etiqueta <input> en HTML se utiliza para crear campos de entrada interactivos en un formulario web-->
+        <input type="radio" name="mascota" id=${mokepon.nombre}/>
+        <!-- La etiqueta <label> en HTML se utiliza para asociar un texto descriptivo con un elemento de formulario, como un campo de entrada (<input>)-->
+        <label class="tarjeta-mokepon" for=${mokepon.nombre}><p>Capipepo</p><img src=${mokepon.foto} alt=""></label> <!-- La etiqueta <label> en HTML se utiliza para asociar un texto descriptivo con un elemento de formulario, como un campo de entrada (<input>)-->
+        `
+        contenedorTarjetas.innerHTML += opcionDeMokepones
+    })
+
     //El metodo getElementById nos sirve para llamar cualquier elemendo con el ID en especidifico
     // Esta es la variable que creamos para seleccionar el boton mascota
 
@@ -188,7 +204,7 @@ function combate(){
         crearMensaje("Perdiste 😔")
         VidasJugador--
         spanVidasJugador.innerHTML = VidasJugador
-    }
+    }``
      revisarVidas()
 }
 
@@ -197,7 +213,6 @@ function revisarVidas(){
     if(vidasEnemigo == 0){
         crearMensajeFinal("Felicitaciones Ganaste 🏆")
     }else if(VidasJugador == 0){
-        console.log("Perdiste")
         crearMensajeFinal("Lo siento, Perdiste 😔")
     }
 }
