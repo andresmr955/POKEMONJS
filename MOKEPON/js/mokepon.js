@@ -29,6 +29,8 @@ let inputCapipepo
 let inputRatigueya
 let inputAndresillo
 
+let mascotaJugador
+
 let VidasJugador = 3
 let vidasEnemigo = 3
 //Las clases inician con mayusculas
@@ -95,7 +97,8 @@ function iniciarJuego(){
          inputCapipepo = document.getElementById('Capipepo')
          inputRatigueya = document.getElementById('Ratigueya')
          inputAndresillo = document.getElementById('Andresillo')
-    })
+     }
+    )
 
     //El metodo getElementById nos sirve para llamar cualquier elemendo con el ID en especidifico
     // Esta es la variable que creamos para seleccionar el boton mascota
@@ -121,18 +124,34 @@ function seleccionarMascotaJugador(){
 
     if(inputHipodoge.checked){
         mascotaSpanJugador.innerHTML = inputHipodoge.id
+        mascotaJugador = inputHipodoge.id
     }else if(inputCapipepo.checked){
         mascotaSpanJugador.innerHTML = inputCapipepo.id
+        mascotaJugador = inputCapipepo.id
     }
     else if(inputRatigueya.checked){
         mascotaSpanJugador.innerHTML = inputRatigueya.id
+        mascotaJugador = inputRatigueya.id
     }else if(inputAndresillo.checked){
         mascotaSpanJugador.innerHTML = inputAndresillo.id
+        mascotaJugador = inputRatigueya.id
     }else{
         alert('Debes seleccionar una mascota')
     }
     //llamamos esta funcion aca debido a que queremos que llame la mascota del enemigo despues del jugador
+    extraerAtaques(mascotaJugador)
     seleccionarMascotaEnemigo()
+}
+
+function extraerAtaques(mascotaJugador){
+    let ataques
+    for(let i = 0; i < mokepones.length; i++){
+        if(mascotaJugador === mokepones[i].nombre){
+            ataques = mokepones[i].ataques
+        }
+    }
+
+    mostrarAtaques(ataques)
 }
 function seleccionarMascotaEnemigo(){
     //creamos esta variable para generar de manera automatica la mascota enemigo
