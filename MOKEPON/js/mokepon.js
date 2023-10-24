@@ -136,20 +136,9 @@ function seleccionarMascotaJugador(){
 }
 function seleccionarMascotaEnemigo(){
     //creamos esta variable para generar de manera automatica la mascota enemigo
-    let mascotaAleatoria = aleatorio(1,4)
+    let mascotaAleatoria = aleatorio(0, mokepones.length -1)
 
-        if(mascotaAleatoria == 1){
-            mascotaSpanEnemigo.innerHTML = 'Hipodoge'
-        }else if(mascotaAleatoria == 2){
-            mascotaSpanEnemigo.innerHTML = 'Capipepo'
-        }
-        else if(mascotaAleatoria == 3){
-            mascotaSpanEnemigo.innerHTML = 'Ratigueya'
-        }else if(mascotaAleatoria == 4){
-            mascotaSpanEnemigo.innerHTML = 'Andresillo'
-        }else{
-            alert('Debes seleccionar una mascota')
-        }
+    mascotaSpanEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
 }
 //Aqui creamos estas funciones para modificar la variable global
         function ataqueFuego(){
