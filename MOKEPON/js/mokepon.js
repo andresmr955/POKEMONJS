@@ -9,10 +9,7 @@ const botonAire = document.getElementById('boton-Wind')
 const botonReiniciar = document.getElementById("Reiniciar")
 const sectionReiniciar = document.getElementById('Reiniciar')
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
-const inputHipodoge = document.getElementById('Hipodoge')
-const inputCapipepo = document.getElementById('Capipepo')
-const inputRatigueya = document.getElementById('Ratigueya')
-const inputAndresillo = document.getElementById('Andresillo')
+
 const mascotaSpanJugador = document.getElementById('mascota-jugador')
 const mascotaSpanEnemigo = document.getElementById('mascota-enemigo')
 const spanVidasJugador = document.getElementById('vidas-jugador')
@@ -26,6 +23,11 @@ let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
 let opcionDeMokepones 
+
+let inputHipodoge
+let inputCapipepo
+let inputRatigueya
+let inputAndresillo
 
 let VidasJugador = 3
 let vidasEnemigo = 3
@@ -83,11 +85,16 @@ function iniciarJuego(){
 
     mokepones.forEach((mokepon) => {
         opcionDeMokepones = `<!--La etiqueta <input> en HTML se utiliza para crear campos de entrada interactivos en un formulario web-->
-        <input type="radio" name="mascota" id=${mokepon.nombre}/>
+        <input type="radio" name="mascota" id=${mokepon.nombre} />
         <!-- La etiqueta <label> en HTML se utiliza para asociar un texto descriptivo con un elemento de formulario, como un campo de entrada (<input>)-->
         <label class="tarjeta-mokepon" for=${mokepon.nombre}><p>Capipepo</p><img src=${mokepon.foto} alt=""></label> <!-- La etiqueta <label> en HTML se utiliza para asociar un texto descriptivo con un elemento de formulario, como un campo de entrada (<input>)-->
         `
         contenedorTarjetas.innerHTML += opcionDeMokepones
+
+         inputHipodoge = document.getElementById('Hipodoge')
+         inputCapipepo = document.getElementById('Capipepo')
+         inputRatigueya = document.getElementById('Ratigueya')
+         inputAndresillo = document.getElementById('Andresillo')
     })
 
     //El metodo getElementById nos sirve para llamar cualquier elemendo con el ID en especidifico
