@@ -33,6 +33,19 @@ let ataqueEnemigo
 let VidasJugador = 3
 let vidasEnemigo = 3
 
+class Mokepon {
+    constructor(nombre, foto, vida){
+        this.nombre = nombre
+        this.foto = foto
+        this.vida = vida
+    }
+}
+
+let hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 5)
+let capipepo = new Mokepon('Capipepo', './js/img/mokepons_mokepon_capipepo_attack.png', 5)
+let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 5)
+let andresillo = new Mokepon('Andresillo', './js/img/images.png', 5)
+
 function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none'
     //El metodo getElementById nos sirve para llamar cualquier elemendo con el ID en especidifico
