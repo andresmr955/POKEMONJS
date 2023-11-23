@@ -27,7 +27,7 @@ const ataquesDelEnemigo = document.getElementById('ataques-enemigo')
 
 
 
-
+let mokepones = []
 let ataqueJugador 
 let ataqueEnemigo 
 let VidasJugador = 3
@@ -45,6 +45,10 @@ let hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attac
 let capipepo = new Mokepon('Capipepo', './js/img/mokepons_mokepon_capipepo_attack.png', 5)
 let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 5)
 let andresillo = new Mokepon('Andresillo', './js/img/images.png', 5)
+
+mokepones.push(hipodoge, capipepo, ratigueya, andresillo)
+
+console.log(mokepones)
 
 function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none'
