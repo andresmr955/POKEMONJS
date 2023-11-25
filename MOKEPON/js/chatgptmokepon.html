@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego de Mascotas</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            background-image: url('tu-imagen-de-fondo.jpg'); /* Reemplaza 'tu-imagen-de-fondo.jpg' con la URL de tu imagen de fondo */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para resaltar el contenido */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .mascota {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .ataque {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Elige tu Mascota</h1>
+        <div class="mascota" onclick="selectMascota('Perro')">🐶 Perro</div>
+        <div class="mascota" onclick="selectMascota('Gato')">🐱 Gato</div>
+        <div class="mascota" onclick="selectMascota('Conejo')">🐰 Conejo</div>
+        <div class="mascota" onclick="selectMascota('Pájaro')">🐦 Pájaro</div>
+        
+        <h2>Selecciona un Ataque</h2>
+        <div class="ataque" onclick="selectAtaque('Ataque1')">Ataque 1</div>
+        <div class="ataque" onclick="selectAtaque('Ataque2')">Ataque 2</div>
+        <div class="ataque" onclick="selectAtaque('Ataque3')">Ataque 3</div>
+        <div class="ataque" onclick="selectAtaque('Ataque4')">Ataque 4</div>
+        
+        <h3>Tu Mascota: <span id="mascotaSeleccionada">Ninguna</span></h3>
+        <h3>Ataque Seleccionado: <span id="ataqueSeleccionado">Ninguno</span></h3>
+    </div>
+    
+    <script>
+        let mascotaActual = '';
+        let ataqueActual = '';
+        
+        function selectMascota(mascota) {
+            mascotaActual = mascota;
+            document.getElementById('mascotaSeleccionada').textContent = mascota;
+        }
+        
+        function selectAtaque(ataque) {
+            ataqueActual = ataque;
+            document.getElementById('ataqueSeleccionado').textContent = ataque;
+        }
+    </script>
+</body>
+</html>
