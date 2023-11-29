@@ -5,6 +5,7 @@ const sectionReiniciar = document.getElementById('Reiniciar')
 const botonMascotaJugador = document.getElementById('boton-mascota')
 const botonAgua = document.getElementById('boton-Water')
 const botonTierra = document.getElementById('boton-Earth')
+sectionReiniciar.style.display = 'none'
 const botonFuego = document.getElementById('boton-Fire')
 const botonAire = document.getElementById('boton-Wind')
 const botonReiniciar = document.getElementById("boton-reiniciar")
@@ -25,12 +26,10 @@ let ataqueJugador
 let ataqueEnemigo
 let opcionDeMokepones 
 
-let inputHipodoge
-let inputCapipepo
-let inputRatigueya
-let inputAndresillo
-
-let mascotaJugador
+let inputHipodoge  
+let inputCapipepo  
+let inputRatigueya  
+let inputAndresillo  
 
 let VidasJugador = 3
 let vidasEnemigo = 3
@@ -47,9 +46,9 @@ class Mokepon {
 }
 
 let capipepo = new Mokepon('Capipepo', './js/img/mokepons_mokepon_capipepo_attack.png', 5)
-let hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 4)
-let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 3)
-let andresillo = new Mokepon('Andresillo', './js/img/images.png', 2)
+let hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 5)
+let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 5)
+let andresillo = new Mokepon('Andresillo', './js/img/images.png', 5)
 
 capipepo.ataques.push(
     {nombre: '🍁', id: 'boton-Earth'},
@@ -115,7 +114,7 @@ function iniciarJuego(){
     botonFuego.addEventListener('click', ataqueFuego)
     botonAire.addEventListener('click', ataqueAire)
     botonReiniciar.addEventListener('click', reiniciarJuego)
-    sectionReiniciar.style.display = 'none'
+    
 }
 function seleccionarMascotaJugador(){
     
@@ -126,41 +125,35 @@ function seleccionarMascotaJugador(){
    
 
     if(inputHipodoge.checked){
-        mascotaSpanJugador.innerHTML = inputHipodoge.id
-        mascotaJugador = inputHipodoge.id
+        mascotaSpanJugador.innerHTML = "Hipodoge"
     }else if(inputCapipepo.checked){
-        mascotaSpanJugador.innerHTML = inputCapipepo.id
-        mascotaJugador = inputCapipepo.id
-    }
+        mascotaSpanJugador.innerHTML = "Capipepo"
+        }
     else if(inputRatigueya.checked){
-        mascotaSpanJugador.innerHTML = inputRatigueya.id
-        mascotaJugador = inputRatigueya.id
+        mascotaSpanJugador.innerHTML = "Ratigueya"
+  
     }else if(inputAndresillo.checked){
-        mascotaSpanJugador.innerHTML = inputAndresillo.id
-        mascotaJugador = inputRatigueya.id
+        mascotaSpanJugador.innerHTML = "Andresillo"
+        
     }else{
         alert('Debes seleccionar una mascota')
     }
     //llamamos esta funcion aca debido a que queremos que llame la mascota del enemigo despues del jugador
-    extraerAtaques(mascotaJugador)
+   
     seleccionarMascotaEnemigo()
 }
 
-function extraerAtaques(mascotaJugador){
-    let ataques
-    for(let i = 0; i < mokepones.length; i++){
-        if(mascotaJugador === mokepones[i].nombre){
-            ataques = mokepones[i].ataques
-        }
-    }
-
-    mostrarAtaques(ataques)
-}
 function seleccionarMascotaEnemigo(){
     //creamos esta variable para generar de manera automatica la mascota enemigo
-    let mascotaAleatoria = aleatorio(0, mokepones.length -1)
+    let mascotaAleatoria = aleatorio(1,4)
 
-    mascotaSpanEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
+    if (mascotaAleatoria == 1) {
+        mascotaSpanEnemigo.innerHTML = 'Hipodoge'
+    } else if (mascotaAleatoria == 2) {
+        mascotaSpanEnemigo.innerHTML = 'Capipepo'
+    } else {
+        mascotaSpanEnemigo.innerHTML = 'Ratigueya'
+    }
 }
 //Aqui creamos estas funciones para modificar la variable global
         function ataqueFuego(){
@@ -256,7 +249,6 @@ function crearMensaje(resultado){
 function crearMensajeFinal(resultadoFinal){
 
     
-    sectionReiniciar.style.display = 'block'
 
     //Tengo que llamar la seccion de mensajes
 
@@ -269,6 +261,9 @@ function crearMensajeFinal(resultadoFinal){
     botonFuego.disabled = true
     
     botonAire.disabled = true
+
+    sectionReiniciar.style.display = 'block'
+
 }
 
 function reiniciarJuego(){
