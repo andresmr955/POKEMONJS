@@ -91,7 +91,7 @@ function iniciarJuego(){
         opcionDeMokepones = `<!--La etiqueta <input> en HTML se utiliza para crear campos de entrada interactivos en un formulario web-->
         <input type="radio" name="mascota" id=${mokepon.nombre} />
         <!-- La etiqueta <label> en HTML se utiliza para asociar un texto descriptivo con un elemento de formulario, como un campo de entrada (<input>)-->
-        <label class="tarjeta-mokepon" for=${mokepon.nombre}><p>Capipepo</p><img src=${mokepon.foto} alt=""></label> <!-- La etiqueta <label> en HTML se utiliza para asociar un texto descriptivo con un elemento de formulario, como un campo de entrada (<input>)-->
+        <label class="tarjeta-mokepon" for=${mokepon.nombre}><p>${mokepon.nombre}</p><img src=${mokepon.foto} alt=${mokepon.nombre}></label> <!-- La etiqueta <label> en HTML se utiliza para asociar un texto descriptivo con un elemento de formulario, como un campo de entrada (<input>)-->
         `
         contenedorTarjetas.innerHTML += opcionDeMokepones
 
@@ -125,15 +125,15 @@ function seleccionarMascotaJugador(){
    
 
     if(inputHipodoge.checked){
-        mascotaSpanJugador.innerHTML = "Hipodoge"
+        mascotaSpanJugador.innerHTML = inputHipodoge.id
     }else if(inputCapipepo.checked){
-        mascotaSpanJugador.innerHTML = "Capipepo"
+        mascotaSpanJugador.innerHTML = inputCapipepo.id
         }
     else if(inputRatigueya.checked){
-        mascotaSpanJugador.innerHTML = "Ratigueya"
+        mascotaSpanJugador.innerHTML = inputRatigueya.id
   
     }else if(inputAndresillo.checked){
-        mascotaSpanJugador.innerHTML = "Andresillo"
+        mascotaSpanJugador.innerHTML = inputAndresillo.id
         
     }else{
         alert('Debes seleccionar una mascota')
