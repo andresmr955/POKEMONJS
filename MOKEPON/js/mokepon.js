@@ -9,7 +9,7 @@ sectionReiniciar.style.display = 'none'
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
 const mascotaSpanJugador = document.getElementById('mascota-jugador')
 
-const mascotaSpanEnemigo = document.getElementById('mascota-enemigo')
+const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 
 const spanVidasJugador = document.getElementById('vidas-jugador')
 const spanVidasEnemigo = document.getElementById('vidas-enemigo')
@@ -39,6 +39,8 @@ let botonAgua
 let botonTierra  
 let botonFuego  
 let botonAire  
+
+let botones = []
 
 let VidasJugador = 3
 let vidasEnemigo = 3
@@ -89,7 +91,7 @@ andresillo.ataques.push(
 )
 
 
-mokepones.push(hipodoge, capipepo, ratigueya,andresillo)
+mokepones.push(hipodoge,capipepo,ratigueya,andresillo)
 
 
 function iniciarJuego(){
@@ -97,10 +99,9 @@ function iniciarJuego(){
     //metodo que nos ayuda a iterar o recorrer nuestros objetos 
 
     mokepones.forEach((mokepon) => {
-        opcionDeMokepones = `<!--La etiqueta <input> en HTML se utiliza para crear campos de entrada interactivos en un formulario web-->
+        opcionDeMokepones = `
         <input type="radio" name="mascota" id=${mokepon.nombre} />
-        <!-- La etiqueta <label> en HTML se utiliza para asociar un texto descriptivo con un elemento de formulario, como un campo de entrada (<input>)-->
-        <label class="tarjeta-mokepon" for=${mokepon.nombre}><p>${mokepon.nombre}</p><img src=${mokepon.foto} alt=${mokepon.nombre}></label> <!-- La etiqueta <label> en HTML se utiliza para asociar un texto descriptivo con un elemento de formulario, como un campo de entrada (<input>)-->
+        <label class="tarjeta-mokepon" for=${mokepon.nombre}><p>${mokepon.nombre}</p><img src=${mokepon.foto} alt=${mokepon.nombre}></label> 
         `
         contenedorTarjetas.innerHTML += opcionDeMokepones
 
@@ -108,8 +109,7 @@ function iniciarJuego(){
          inputCapipepo = document.getElementById('Capipepo')
          inputRatigueya = document.getElementById('Ratigueya')
          inputAndresillo = document.getElementById('Andresillo')
-     }
-    )
+     })
 
     //El metodo getElementById nos sirve para llamar cualquier elemendo con el ID en especidifico
     // Esta es la variable que creamos para seleccionar el boton mascota
@@ -169,7 +169,7 @@ function extraerAtaques(mascotaJugador){
 
 function mostrarAtaques(ataques){
     ataques.forEach((ataque) => {
-        ataquesMokepon = ` <button id=${ataque.id}  class="boton-ataque">${ataque.nombre}</button> `
+        ataquesMokepon = ` <button id=${ataque.id}  class="boton-ataque BAtaque">${ataque.nombre}</button> `
         
         contenedorAtaques.innerHTML += ataquesMokepon
 
@@ -180,37 +180,40 @@ function mostrarAtaques(ataques){
     botonTierra = document.getElementById('boton-Earth')
     botonFuego = document.getElementById('boton-Fire')
     botonAire = document.getElementById('boton-Wind')
-    
+    botones = document.querySelectorAll('.BAtaque')
 
-    botonAgua.addEventListener('click', ataqueAgua)
-    botonTierra.addEventListener('click', ataqueTierra)
-    botonFuego.addEventListener('click', ataqueFuego)
-    botonAire.addEventListener('click', ataqueAire)
+
+}
+
+
+function secuenciaAtaque() {
+    botones.forEach((boton) => {
+        boton.addEventListener('click', (e) => {
+            if (e.target.textContent === '🔥') {
+                ataqueJugador.push('FUEGO')
+                console.log(ataqueJugador)
+                boton.style.background = '#112f58'   
+            } else if (e.target.textContent === '💧') {
+                ataqueJugador.push('AGUA')
+                console.log(ataqueJugador)
+                boton.style.background = '#112f58'
+            }  else {
+                ataqueJugador.push('TIERRA')
+                console.log(ataqueJugador)
+                boton.style.background = '#112f58'
+            }
+        })
+    })
 
 }
 function seleccionarMascotaEnemigo(){
     //creamos esta variable para generar de manera automatica la mascota enemigo
     let mascotaAleatoria = aleatorio(0, mokepones.length -1)
-
-    mascotaSpanEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
+    
+    spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
+    secuenciaAtaque()
+    
 }
-//Aqui creamos estas funciones para modificar la variable global
-        function ataqueFuego(){
-            ataqueJugador =  "Fire"
-            ataqueAleatorioEnemigo()
-        }
-        function ataqueAire(){
-            ataqueJugador =  "Wind"
-            ataqueAleatorioEnemigo()
-        }
-        function ataqueAgua(){
-            ataqueJugador =  "Water"
-            ataqueAleatorioEnemigo()
-        }
-        function ataqueTierra(){
-            ataqueJugador =  "Earth"
-            ataqueAleatorioEnemigo()
-        }
 
 function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(1,4)
