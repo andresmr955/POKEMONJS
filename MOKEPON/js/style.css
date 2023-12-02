@@ -53,18 +53,10 @@ o también puede ser la etiqueta h1 h2 o p
   }
   
   /* Estilos para los elementos dentro de la caja de ataques */
-  .ataques-item {
-    background-color: #5dc4f0b4; /* Fondo de los elementos */
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 5px; /* Espacio entre elementos */
-    color: #000; /* Color del texto */
-    text-align: center; /* Alineación del texto */
+  .ataques-jugador, .ataques-enemigo {
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
   
   .nombre-mascota{
