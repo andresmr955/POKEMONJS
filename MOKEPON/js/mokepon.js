@@ -24,7 +24,7 @@ const contenedorAtaques = document.getElementById('contenedorAtaques')
 //let es una variable que va estar cambiando 
 let mokepones = []
 let ataqueJugador = []
-let ataqueEnemigo
+let ataqueEnemigo = []
 let opcionDeMokepones 
 
 let inputHipodoge  
@@ -34,6 +34,7 @@ let inputAndresillo
 
 let mascotaJugador
 let ataquesMokepon
+let ataquesMokeponEnemigo
 
 let botonAgua  
 let botonTierra  
@@ -206,8 +207,10 @@ function secuenciaAtaque() {
                 console.log(ataqueJugador)
                 boton.style.background = '#112f58'
             }
+            ataqueAleatorioEnemigo()
         })
     })
+    
 
 }
 function seleccionarMascotaEnemigo(){
@@ -215,25 +218,27 @@ function seleccionarMascotaEnemigo(){
     let mascotaAleatoria = aleatorio(0, mokepones.length -1)
     
     spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
+    ataquesMokeponEnemigo = mokepones[mascotaAleatoria].nombre
     secuenciaAtaque()
     
 }
 
 function ataqueAleatorioEnemigo() {
-    let ataqueAleatorio = aleatorio(1,4)
-    if (ataqueAleatorio == 1) {
-        ataqueEnemigo = 'Fire'
+    let ataqueAleatorio = aleatorio(0, ataquesMokeponEnemigo.length -1)
+    if (ataqueAleatorio == 0 || ataqueAleatorio == 1) {
+        ataqueEnemigo.push('Fire')
 
-    } else if (ataqueAleatorio == 2) {
-        ataqueEnemigo = 'Water'
+    } else if (ataqueAleatorio == 2 || ataqueAleatorio == 3) {
+        ataqueEnemigo.push('Water')
 
-    } else if (ataqueAleatorio == 3) {
-        ataqueEnemigo = 'Wind'
+    } else if (ataqueAleatorio == 4|| ataqueAleatorio == 5) {
+        ataqueEnemigo.push('Wind')
 
     }else {
         ataqueEnemigo = 'Earth'
 
     }
+    console.log(ataqueEnemigo)
     combate()
 }
 //Logica para saber quien gano y quien perdio
