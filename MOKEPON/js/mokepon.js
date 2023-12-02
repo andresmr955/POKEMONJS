@@ -23,7 +23,7 @@ const contenedorAtaques = document.getElementById('contenedorAtaques')
 
 //let es una variable que va estar cambiando 
 let mokepones = []
-let ataqueJugador
+let ataqueJugador = []
 let ataqueEnemigo
 let opcionDeMokepones 
 
@@ -197,7 +197,11 @@ function secuenciaAtaque() {
                 ataqueJugador.push('AGUA')
                 console.log(ataqueJugador)
                 boton.style.background = '#112f58'
-            }  else {
+            }  else if (e.target.textContent === '💨') {
+                ataqueJugador.push('AIRE')
+                console.log(ataqueJugador)
+                boton.style.background = '#112f58'
+            } else {
                 ataqueJugador.push('TIERRA')
                 console.log(ataqueJugador)
                 boton.style.background = '#112f58'
