@@ -20,6 +20,8 @@ const ataquesDelEnemigo = document.getElementById('ataques-enemigo')
 const contenedorTarjetas = document.getElementById('contenedor-tarjetas')
 
 const contenedorAtaques = document.getElementById('contenedorAtaques')
+const sectionVerMapa = document.getElementById('ver-mapa')
+const mapa = document.getElementById('mapa')
 
 //let es una variable que va estar cambiando 
 let mokepones = []
@@ -52,6 +54,7 @@ let victoriasEnemigo = 0
 let VidasJugador = 3
 let vidasEnemigo = 3
 
+let lienzo = mapa.getContext("2d")
 
 //Las clases inician con mayusculas
 class Mokepon {
@@ -63,7 +66,7 @@ class Mokepon {
     }
 }
 let hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 5)
-let capipepo = new Mokepon('Capipepo', './js/img/mokepons_mokepon_capipepo_attack.png', 5)
+let capipepo = new Mokepon('Capipepo', './js/img/capipepo.png', 5)
 let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 5)
 let andresillo = new Mokepon('Andresillo', './js/img/images.png', 5)
 
@@ -103,6 +106,7 @@ mokepones.push(hipodoge,capipepo,ratigueya,andresillo)
 
 function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none'
+    sectionVerMapa.style.display = 'none'
     //metodo que nos ayuda a iterar o recorrer nuestros objetos 
 
     mokepones.forEach((mokepon) => {
@@ -135,7 +139,17 @@ function seleccionarMascotaJugador(){
     
     sectionSeleccionarMascota.style.display = 'none'
 
-    sectionSeleccionarAtaque.style.display = 'flex'
+    //sectionSeleccionarAtaque.style.display = 'flex'
+    sectionVerMapa.style.display = 'flex'
+    let imagenDeCapipepo = new Image()
+    imagenDeCapipepo.src = capipepo.foto
+    lienzo.drawImage(
+        imagenDeCapipepo,
+        20,
+        40,
+        100,
+        100,
+    )
     // Creamos estas variables para que sea mas legible el codigo y no sea tan extenso dentro del condicional y se pueden usar los metodos en las variables
    
 

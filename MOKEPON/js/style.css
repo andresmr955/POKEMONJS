@@ -187,6 +187,16 @@ o también puede ser la etiqueta h1 h2 o p
     cursor: pointer;
     transition: background-color 0.3s;
   }
+
+#ver-mapa {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mapa {
+    border: 2px solid white;
+}
   
   #boton-reiniciar:hover {
     background-color: #2980b9;
