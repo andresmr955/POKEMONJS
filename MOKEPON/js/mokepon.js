@@ -151,11 +151,11 @@ function seleccionarMascotaJugador(){
 
     //sectionSeleccionarAtaque.style.display = 'flex'
     sectionVerMapa.style.display = 'flex'
-    intervalo = setInterval(pintarPersonaje, 50)
     
     // Creamos estas variables para que sea mas legible el codigo y no sea tan extenso dentro del condicional y se pueden usar los metodos en las variables
    
-
+    iniciarMapa()
+    
     if(inputHipodoge.checked){
         mascotaSpanJugador.innerHTML = inputHipodoge.id
         mascotaJugador = inputHipodoge.id
@@ -395,5 +395,32 @@ function detenerMovimiento(){
     capipepo.velocidadY = 0
 }
 
+
+function teclaPresionada(event){
+    switch(event.key){
+        case 'ArrowUp':
+            moverArriba()
+            break
+        case 'ArrowDown':
+            moverAbajo()
+            break
+        case 'ArrowLeft':
+            moverIzquierda()
+            break
+        case 'ArrowRight':
+            moverDerecha()         
+        default:
+            break
+    }
+}
+
+
+function iniciarMapa(){
+
+    intervalo = setInterval(pintarPersonaje, 50)
+
+    window.addEventListener(`keydown`, teclaPresionada)
+    window.addEventListener(`keyup` , detenerMovimiento)
+}
 //Este metodo nos sirve para cargar toda la pagina
 window.addEventListener('load', iniciarJuego)
