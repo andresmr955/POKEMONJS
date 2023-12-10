@@ -55,6 +55,7 @@ let VidasJugador = 3
 let vidasEnemigo = 3
 
 let lienzo = mapa.getContext("2d")
+let intervalo
 
 //Las clases inician con mayusculas
 class Mokepon {
@@ -69,6 +70,8 @@ class Mokepon {
         this.alto = 80
         this.mapaFoto = new Image()
         this.mapaFoto.src = foto
+        this.velocidadX = 0
+        this.velocidadY = 0
 
     }
 }
@@ -148,7 +151,7 @@ function seleccionarMascotaJugador(){
 
     //sectionSeleccionarAtaque.style.display = 'flex'
     sectionVerMapa.style.display = 'flex'
-   
+    intervalo = setInterval(pintarPersonaje, 50)
     
     // Creamos estas variables para que sea mas legible el codigo y no sea tan extenso dentro del condicional y se pueden usar los metodos en las variables
    
@@ -189,7 +192,6 @@ function extraerAtaques(mascotaJugador){
 
 }
 
-
 function mostrarAtaques(ataques){
     ataques.forEach((ataque) => {
         ataquesMokepon = ` <button id=${ataque.id}  class="boton-ataque BAtaque">${ataque.nombre}</button> `
@@ -207,7 +209,6 @@ function mostrarAtaques(ataques){
 
 
 }
-
 
 function secuenciaAtaque() {
     botones.forEach((boton) => {
@@ -251,7 +252,6 @@ function seleccionarMascotaEnemigo(){
     secuenciaAtaque()
     
 }
-
 function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(0, ataquesMokeponEnemigo.length - 1);
     if (ataqueAleatorio == 0 || ataqueAleatorio == 1) {
@@ -266,8 +266,6 @@ function ataqueAleatorioEnemigo() {
     console.log(ataqueEnemigo);
     iniciarPelea();
 }
-
-
 function iniciarPelea(){
     if(ataqueJugador.length === 5){
         combate()
@@ -347,14 +345,9 @@ function crearMensaje(resultado){
 // Creamos una nueva funcion para crear el mensaje Final
 function crearMensajeFinal(resultadoFinal){
 
-    
-
     //Tengo que llamar la seccion de mensajes
 
     sectionMensajes.innerHTML = resultadoFinal
-
-   
-    
 
     sectionReiniciar.style.display = 'block'
 
@@ -368,6 +361,8 @@ function aleatorio(min, max){
 }
 
 function pintarPersonaje(){
+    capipepo.x = capipepo.x + capipepo.velocidadX
+    capipepo.y = capipepo.y + capipepo.velocidadY
     lienzo.clearRect(0, 0, mapa.width, mapa.height )
     lienzo.drawImage(
         capipepo.mapaFoto,
@@ -378,9 +373,26 @@ function pintarPersonaje(){
     )
 }
 
-function moverCapipepo(){
-    capipepo.x = capipepo.x + 5
-    pintarPersonaje()
+function moverDerecha(){
+    capipepo.velocidadX = 5
+
+}
+function moverIzquierda(){
+    capipepo.velocidadX = -5
+
+}
+
+function moverAbajo(){
+    capipepo.velocidadY = 5
+
+}
+function moverArriba(){
+    capipepo.velocidadY = -5
+}
+
+function detenerMovimiento(){
+    capipepo.velocidadX = 0
+    capipepo.velocidadY = 0
 }
 
 //Este metodo nos sirve para cargar toda la pagina
