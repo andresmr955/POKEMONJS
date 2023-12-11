@@ -399,7 +399,14 @@ function pintarCanvas(){
     hipodogeEnemigo.pintarMokepon()
     ratigueyaEnemigo.pintarMokepon()
     andresilloEnemigo.pintarMokepon()
+    if(objetoMascotaJugador.velocidadX !== 0 || objetoMascotaJugador.velocidadY !== 0) {
+        revisarColision(hipodogeEnemigo)
+        revisarColision(ratigueyaEnemigo)
+        revisarColision(capipepoEnemigo)
+        revisarColision(andresilloEnemigo)
 
+
+    }
     
 }
 
@@ -464,6 +471,34 @@ function obtenerObjetoMascota(){
             return mokepones[i]
         }
     }
+}
+
+function revisarColision(enemigo){
+
+    const arribaEnemigo = enemigo.y
+    const abajoEnemigo = enemigo.y + enemigo.alto
+    const derechaEnemigo = enemigo.x + enemigo.ancho
+    const izquierdaEnemigo = enemigo.x 
+
+    const arribaMascota = 
+        objetoMascotaJugador.y
+    const abajoMascota = 
+        objetoMascotaJugador.y + objetoMascotaJugador.alto
+    const derechaMascota = 
+        objetoMascotaJugador.x + objetoMascotaJugador.ancho
+    const izquierdaMascota = 
+        objetoMascotaJugador.x 
+    
+    if(
+        abajoMascota < arribaEnemigo ||
+        arribaMascota > abajoEnemigo ||
+        derechaMascota < izquierdaEnemigo ||
+        izquierdaMascota > derechaEnemigo
+    ){
+        return
+    }
+    detenerMovimiento()
+    alert("Hay una colision" + ' con '+ enemigo.nombre)
 }
 //Este metodo nos sirve para cargar toda la pagina
 window.addEventListener('load', iniciarJuego)
