@@ -107,7 +107,23 @@ hipodoge.ataques.push(
     {nombre: '🍁', id: 'boton-Earth'},
     {nombre: '💨', id: 'boton-Wind'},
 )
+
+hipodogeEnemigo.ataques.push(
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '💨', id: 'boton-Wind'},
+)
 capipepo.ataques.push(
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '💨', id: 'boton-Wind'},
+)
+
+capipepoEnemigo.ataques.push(
     {nombre: '🍁', id: 'boton-Earth'},
     {nombre: '🍁', id: 'boton-Earth'},
     {nombre: '🍁', id: 'boton-Earth'},
@@ -122,6 +138,14 @@ ratigueya.ataques.push(
     {nombre: '🍁', id: 'boton-Earth'},
     {nombre: '💨', id: 'boton-Wind'},
 )
+
+ratigueyaEnemigo.ataques.push(
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '💨', id: 'boton-Wind'},
+)
 andresillo.ataques.push(
     {nombre: '🍁', id: 'boton-Earth'},
     {nombre: '🔥', id: 'boton-Fire'},
@@ -130,6 +154,13 @@ andresillo.ataques.push(
     {nombre: '💨', id: 'boton-Wind'},
 )
 
+andresilloEnemigo.ataques.push(
+    {nombre: '🍁', id: 'boton-Earth'},
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '🔥', id: 'boton-Fire'},
+    {nombre: '💧', id: 'boton-Water'},
+    {nombre: '💨', id: 'boton-Wind'},
+)
 
 mokepones.push(hipodoge,capipepo,ratigueya,andresillo)
 
@@ -169,7 +200,6 @@ function seleccionarMascotaJugador(){
     
     sectionSeleccionarMascota.style.display = 'none'
 
-    //sectionSeleccionarAtaque.style.display = 'flex'
     sectionVerMapa.style.display = 'flex'
     
     // Creamos estas variables para que sea mas legible el codigo y no sea tan extenso dentro del condicional y se pueden usar los metodos en las variables
@@ -198,7 +228,6 @@ function seleccionarMascotaJugador(){
    
     extraerAtaques(mascotaJugador)
     iniciarMapa()
-    seleccionarMascotaEnemigo()
 }
 
 function extraerAtaques(mascotaJugador){
@@ -264,12 +293,10 @@ function secuenciaAtaque() {
     
 
 }
-function seleccionarMascotaEnemigo(){
+function seleccionarMascotaEnemigo(enemigo){
     //creamos esta variable para generar de manera automatica la mascota enemigo
-    let mascotaAleatoria = aleatorio(0, mokepones.length -1)
-    
-    spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
-    ataquesMokeponEnemigo = mokepones[mascotaAleatoria].ataques
+    spanMascotaEnemigo.innerHTML = enemigo.nombre
+    ataquesMokeponEnemigo = enemigo.ataques
     secuenciaAtaque()
     
 }
@@ -498,7 +525,10 @@ function revisarColision(enemigo){
         return
     }
     detenerMovimiento()
-    alert("Hay una colision" + ' con '+ enemigo.nombre)
+    clearInterval(intervalo)
+        sectionSeleccionarAtaque.style.display = 'flex'
+        sectionVerMapa.style.display = 'none'
+        seleccionarMascotaEnemigo(enemigo)
 }
 //Este metodo nos sirve para cargar toda la pagina
 window.addEventListener('load', iniciarJuego)
