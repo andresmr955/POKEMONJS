@@ -194,9 +194,7 @@ o también puede ser la etiqueta h1 h2 o p
     justify-content: center;
 }
 
-#mapa {
-    border: 2px solid white;
-}
+
   
   #boton-reiniciar:hover {
     background-color: #2980b9;
