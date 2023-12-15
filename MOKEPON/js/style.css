@@ -194,7 +194,21 @@ o también puede ser la etiqueta h1 h2 o p
     justify-content: center;
 }
 
-
+#ver-mapa button {
+    width: 80px;
+    height: 40px;
+    border-color: white; /* Quitamos el borde para un aspecto más limpio */
+    border-radius: 20px;
+    background-color: #1c684f;
+    color: white;
+    font-size: 16px; /* Aumentamos el tamaño del texto para una mejor legibilidad */
+    font-weight: bold; /* Hacemos el texto en negrita para destacarlo */
+    margin: 10px 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    
+}
   
   #boton-reiniciar:hover {
     background-color: #2980b9;
@@ -232,8 +246,17 @@ body {
     padding: 20px;
 }
 
-@media (max-width: 360px){
+@media (max-width: 560px){
     .tarjetas, .tarjetas-ataques{
+        flex-direction: column;
+    }
+   
+}
+
+@media (max-width: 360px){
+    #ver-mapa div{
+        display: flex;
+        align-items: center;
         flex-direction: column;
     }
    
