@@ -23,6 +23,7 @@ const contenedorAtaques = document.getElementById('contenedorAtaques')
 const sectionVerMapa = document.getElementById('ver-mapa')
 const mapa = document.getElementById('mapa')
 
+let jugadorId = null
 //let es una variable que va estar cambiando 
 let mokepones = []
 let ataqueJugador = []
@@ -217,6 +218,7 @@ function unirseAlJuego(){
             res.text()
             .then(function(respuesta){
                 console.log(respuesta)
+                jugadorId = respuesta
             })
         }
     })
@@ -225,7 +227,6 @@ function seleccionarMascotaJugador(){
     
     sectionSeleccionarMascota.style.display = 'none'
 
-    sectionVerMapa.style.display = 'flex'
     
     // Creamos estas variables para que sea mas legible el codigo y no sea tan extenso dentro del condicional y se pueden usar los metodos en las variables
    
@@ -251,8 +252,24 @@ function seleccionarMascotaJugador(){
     }
     //llamamos esta funcion aca debido a que queremos que llame la mascota del enemigo despues del jugador
    
+    seleccionarMokepon(mascotaJugador)
+
     extraerAtaques(mascotaJugador)
+    sectionVerMapa.style.display = 'flex'
+
     iniciarMapa()
+}
+
+function seleccionarMokepon(){
+    fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
+        method: "post",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            mokepon: mascotaJugador
+        })
+    })
 }
 
 function extraerAtaques(mascotaJugador){
