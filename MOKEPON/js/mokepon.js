@@ -260,7 +260,7 @@ function seleccionarMascotaJugador(){
     iniciarMapa()
 }
 
-function seleccionarMokepon(){
+function seleccionarMokepon(mascotaJugador){
     fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
         method: "post",
         headers:{
