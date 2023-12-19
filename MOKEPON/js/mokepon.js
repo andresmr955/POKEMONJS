@@ -24,9 +24,10 @@ const sectionVerMapa = document.getElementById('ver-mapa')
 const mapa = document.getElementById('mapa')
 
 let jugadorId = null
+let enemigoId = null
 //let es una variable que va estar cambiando 
 let mokeponesEnemigos = []
-let enemigoId = null
+
 let mokepones = []
 let ataqueJugador = []
 let ataqueEnemigo = []
@@ -104,10 +105,10 @@ class Mokepon {
         
     }
 }
-let hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 5, '/js/img/hipodoge.png', enemigo.id)
-let capipepo = new Mokepon('Capipepo', './js/img/capipepo.png', 5, '/js/img/capipepo (1).png', enemigo.id)
-let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 5, '/js/img/ratigueya.png', enemigo.id)
-let andresillo = new Mokepon('Andresillo', './js/img/images.png', 5, '/js/img/images.png', enemigo.id)
+let hipodoge = new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 5, '/js/img/hipodoge.png')
+let capipepo = new Mokepon('Capipepo', './js/img/capipepo.png', 5, '/js/img/capipepo (1).png')
+let ratigueya = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 5, '/js/img/ratigueya.png')
+let andresillo = new Mokepon('Andresillo', './js/img/images.png', 5, '/js/img/images.png')
 
 
 const HIPODOGE_ATAQUES = [
@@ -326,7 +327,26 @@ function enviarAtaques(){
             ataques: ataqueJugador
         })
     })
+
+    intervalo = setInterval(obtenerAtaques, 50)
 } 
+
+function obtenerAtaques(){
+    fetch(`http://localhost:8080/mokepon/${enemigoId}/ataques`)
+        .then(function(res){
+            if(res.ok){
+                res.json()
+                    .then(function({ ataques }){ 
+                        if(ataques.length === 5){
+                            ataqueEnemigo = ataques
+                            combate()
+                        }
+                 })
+            }
+        })
+}
+
+
 function seleccionarMascotaEnemigo(enemigo){
     //creamos esta variable para generar de manera automatica la mascota enemigo
     spanMascotaEnemigo.innerHTML = enemigo.nombre
@@ -360,6 +380,8 @@ function indexAmbosOponentes(jugador, enemigo){
     indexAtaqueEnemigo = ataqueEnemigo[enemigo]
 }
 function combate(){
+
+    clearInterval(intervalo)
 
     for (let i = 0; i < ataqueJugador.length; i++) {
         if(ataqueJugador[i] === ataqueEnemigo[i]){
@@ -487,14 +509,14 @@ function enviarPosicion(x, y){
                 mokeponesEnemigos = enemigos.map(function(enemigo) {
                     const mokeponNombre = enemigo.mokepon.nombre || ""
                     if(mokeponNombre === "Hipodoge"){
-                        mokeponEnemigo= new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 5, '/js/img/hipodoge.png')
+                        mokeponEnemigo= new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 5, '/js/img/hipodoge.png', enemigo.id)
                     }else if(mokeponNombre === "Capipepo"){
-                        mokeponEnemigo = new Mokepon('Capipepo', './js/img/capipepo.png', 5, '/js/img/capipepo (1).png')
+                        mokeponEnemigo = new Mokepon('Capipepo', './js/img/capipepo.png', 5, '/js/img/capipepo (1).png', enemigo.id)
 
                     }else if (mokeponNombre === "Ratigueya"){
-                        mokeponEnemigo = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 5, '/js/img/ratigueya.png')
+                        mokeponEnemigo = new Mokepon('Ratigueya', './js/img/mokepons_mokepon_ratigueya_attack.png', 5, '/js/img/ratigueya.png', enemigo.id)
                     }else if (mokeponNombre === "Andresillo"){
-                        mokeponEnemigo = new Mokepon('Andresillo', './js/img/images.png', 5, '/js/img/images.png')
+                        mokeponEnemigo = new Mokepon('Andresillo', './js/img/images.png', 5, '/js/img/images.png', enemigo.id)
                     }
 
 
@@ -598,11 +620,11 @@ function revisarColision(enemigo){
     }
     detenerMovimiento()
     clearInterval(intervalo)
-
-        enemigoId = enemigo.id
-        sectionSeleccionarAtaque.style.display = 'flex'
-        sectionVerMapa.style.display = 'none'
-        seleccionarMascotaEnemigo(enemigo)
+    console.log("Se detecto una")
+    enemigoId = enemigo.id
+    sectionSeleccionarAtaque.style.display = 'flex'
+    sectionVerMapa.style.display = 'none'
+    seleccionarMascotaEnemigo(enemigo)   
 }
 //Este metodo nos sirve para cargar toda la pagina
 window.addEventListener('load', iniciarJuego)
