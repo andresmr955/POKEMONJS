@@ -25,6 +25,7 @@ const mapa = document.getElementById('mapa')
 
 let jugadorId = null
 //let es una variable que va estar cambiando 
+let mokeponesEnemigos = []
 let mokepones = []
 let ataqueJugador = []
 let ataqueEnemigo = []
@@ -441,8 +442,6 @@ function pintarCanvas(){
 
     enviarPosicion(objetoMascotaJugador.x, objetoMascotaJugador.y)
 
-
-
     mokeponesEnemigos.forEach(function (mokepon) {
         mokepon.pintarMokepon()
     })
@@ -472,7 +471,7 @@ function enviarPosicion(x, y){
             .then(function( { enemigos } ){
                 console.log(enemigos)
                 let mokeponEnemigo = null
-                enemigos.forEach(function(enemigo) {
+                mokeponesEnemigos = enemigos.map(function(enemigo) {
                     const mokeponNombre = enemigo.mokepon.nombre || ""
                     if(mokeponNombre === "Hipodoge"){
                         mokeponEnemigo= new Mokepon('Hipodoge', './js/img/mokepons_mokepon_hipodoge_attack.png', 5, '/js/img/hipodoge.png')
@@ -489,8 +488,7 @@ function enviarPosicion(x, y){
                     mokeponEnemigo.x = enemigo.x
                     mokeponEnemigo.y = enemigo.y
 
-                    mokeponEnemigo.pintarMokepon()
-
+                    return mokeponEnemigo
 
                 })
                 
