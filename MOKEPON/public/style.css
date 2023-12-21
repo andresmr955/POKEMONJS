@@ -1,0 +1,263 @@
+/* Importaciones de Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Poppins:ital,wght@0,100;0,500;1,700&display=swap');
+
+/* Reglas para Etiquetas */
+/*
+.nombre es la clase
+#nombre es el id 
+o también puede ser la etiqueta h1 h2 o p 
+*/
+
+
+/* Estilos Universales */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* El border-box es mejor colocarlo de manera universal, no queremos que ninguna caja cambie de tamaño y malogre todo nuestro estilo. */
+}
+
+/* Clase .titulo */
+.titulo {
+    color: #0077b6; /* Cambiar el color del texto a uno más profesional */
+    background-color: #f2f2f2; /* Utilizar un fondo más suave que contraste bien con el color del texto */
+    width: 25%; /* Aprovechar todo el ancho disponible */
+    height: 60px; /* Aumentar la altura para que destaque */
+    display: flex; /* Utilizar flexbox para centrar vertical y horizontalmente el contenido */
+    align-items: center; /* Centrar verticalmente el contenido */
+    justify-content: center; /* Centrar horizontalmente el contenido */
+    font-size: 32px; /* Aumentar el tamaño del texto */
+    font-weight: bold; /* Hacer que el texto sea más audaz */
+    border: 2px solid #0077b6; /* Agregar un borde para definir el área del título */
+    border-radius: 98px; /* Redondear las esquinas del elemento */
+    padding: 10px; /* Agregar espacio interno para separar el contenido del borde */
+    margin-bottom: 20px; /* Agregar margen inferior para separar del contenido adyacente */
+}
+
+/* Clase .subtitulo */
+.subtitulo {
+    /* Agregar estilos para .subtitulo si es necesario */
+}
+
+.ataques {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    gap: 10px; /* Espacio entre los elementos */
+    margin-top: 25px;
+    background-color: #0073e6; /* Azul personalizado */
+    padding: 15px; /* Espacio interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: center; /* Alineación del texto */
+  }
+  
+  /* Estilos para los elementos dentro de la caja de ataques */
+  .ataques-jugador, .ataques-enemigo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nombre-mascota{
+    display: flex;
+    gap: 10px;
+    background-color: #094167;
+    width: 75px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    color: #f4ebeb;
+    align-items: center;
+    justify-content: center;
+}
+  
+  /* Agrega estos estilos a tus elementos HTML según corresponda */
+  
+
+/* Clase .tarjeta-mokepon */
+.tarjeta-mokepon {
+    width: 200px; /* Aumentar el ancho para un aspecto más llamativo */
+    height: 150px; /* Aumentar la altura para más espacio */
+    background-color: #1c684f; /* Cambiar el color de fondo a "agua marina" más estándar */
+    padding: 20px; /* Aumentar el relleno para más espacio interno */
+    box-sizing: border-box;
+    margin: 10px;
+    border: 2px solid #06ca3499; /* Aumentar el grosor del borde y cambiar el color a uno más llamativo */
+    border-radius: 10px; /* Redondear las esquinas */
+    text-align: center; /* Centrar el contenido horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar el contenido verticalmente */
+    justify-content: center;
+    color: #fff; /* Cambiar el color del texto a blanco para que contraste con el fondo */
+    text-decoration: none; /* Eliminar el subrayado del texto */
+    cursor: pointer; /* Cambiar el cursor al estilo de un botón al pasar el ratón sobre él */
+    transition: background-color 0.3s, color 0.3s; /* Agregar una transición suave al cambiar el color de fondo y el texto */
+}
+
+/* Estilos para imágenes dentro de .tarjeta-mokepon */
+.tarjeta-mokepon img {
+    width: 80px;
+}
+
+/* Clase .tarjetas */
+.tarjetas, .tarjetas-ataques {
+    display: flex;
+    gap: 10px; /* Espaciado */
+}
+
+/* Estilos en Hover para .tarjeta-mokepon */
+.tarjeta-mokepon:hover {
+    background-color: #02990595; /* Cambiar el color de fondo al pasar el ratón sobre él */
+}
+.boton-ataque{
+    background-color: rgba(6, 45, 174, 0.628); /* Cambiamos el color a un tono rojo que es común en elementos de videojuegos */
+    color: #fff; /* Cambiamos el color del texto a blanco para mejorar la legibilidad */
+    border: 2px solid #072192ba; /* Añadimos un borde rojo */
+    border-radius: 25px; /* Agregamos bordes redondeados */
+    border-color: rgba(255, 255, 255, 0.594);
+    padding: 10px 20px; /* Aumentamos el espacio interno del botón para que sea más grande y legible */
+    font-size: 16px; /* Ajustamos el tamaño del texto */
+}
+.boton-ataque:hover {
+    background-color: #05218ea0; /* Cambiar el color de fondo al pasar el ratón sobre él */
+}
+
+
+/* ID #boton-mascota */
+#boton-mascota {
+    width: 180px;
+    height: 40px;
+    border-color: white; /* Quitamos el borde para un aspecto más limpio */
+    border-radius: 20px;
+    background-color: #1c684f;
+    color: white;
+    font-size: 16px; /* Aumentamos el tamaño del texto para una mejor legibilidad */
+    font-weight: bold; /* Hacemos el texto en negrita para destacarlo */
+    margin: 30px 20px 10px 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 100px;
+}
+
+
+
+/* Estilos en Hover para #boton-mascota */
+#boton-mascota:hover {
+    background-color: #156c557c; /* Cambiamos el color de fondo al pasar el ratón por encima */
+    color: #fff; /* Cambiamos el color del texto al pasar el ratón por encima */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agregamos una sombra al botón en hover para un efecto tridimensional */
+}
+
+/* ID #seleccionar-mascota y #seleccionar-ataque */
+#seleccionar-mascota{
+    display: flex;  /* Con esto le decimos que trabaje con la tecnología de flex */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#seleccionar-ataque{
+   
+    flex-direction: column; /*de arriba para abaho*/
+    align-items: center;
+}
+
+#mensajes{
+    width: 180px;
+    background: rgba(3, 8, 145, 0.652);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#boton-reiniciar {
+    margin-top: 20px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+#ver-mapa {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#ver-mapa button {
+    width: 80px;
+    height: 40px;
+    border-color: white; /* Quitamos el borde para un aspecto más limpio */
+    border-radius: 20px;
+    background-color: #1c684f;
+    color: white;
+    font-size: 16px; /* Aumentamos el tamaño del texto para una mejor legibilidad */
+    font-weight: bold; /* Hacemos el texto en negrita para destacarlo */
+    margin: 10px 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    
+}
+  
+  #boton-reiniciar:hover {
+    background-color: #2980b9;
+  }
+  
+  #boton-reiniciar:focus {
+    outline: none;
+  }
+  
+  #boton-reiniciar:active {
+    background-color: #1f6690;
+  }
+  
+
+/* Estilos para elementos <input> */
+input {
+    display: none;
+      transition: background-color 0.3s ease; /* Agrega una transición suave al cambio de color de fondo */
+}
+
+input:checked + label{
+  background-color: #02990595; /* Cambia el color de fondo cuando se selecciona */
+}
+
+/* Estilos Globales para el Body */
+body {
+    background-image: url(./img/imagenfondo.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family: 'Fredoka', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 560px){
+    .tarjetas, .tarjetas-ataques{
+        flex-direction: column;
+    }
+   
+}
+
+@media (max-width: 360px){
+    #ver-mapa div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+   
+}
