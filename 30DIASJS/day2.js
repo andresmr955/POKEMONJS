@@ -34,26 +34,29 @@ console.log('Palabra más frecuente:', mostFrequentWord);
 console.log('Frecuencia:', maxFrequency);
 
 
-
 var texto = 'Él gana 5000 euros de salario por mes, bono anual de 10000 euros, cursos en línea de 15000 euros por mes.';
 var regexUno = /\d+/g;
 var numerosDeTexto = texto.match(regexUno)
-var valorAnual
+var sueldoMensual = 0;
+var bonoAnual = 0;
+var cursosMensuales = 0;
+var valorAnual = 0;
 
-function sacarValores(valor){
+
+function sacarValores(){
     for (var i = 0; i < numerosDeTexto.length; i++) {
-        if(numeros[i] === '5000'){
-            var primerSueldo = numeros[i]
-             primerSueldo = primerSueldo * 12
-            console.log("Este es 1 =>" + primerSueldo)
-            return primerSueldo
-        }else if(numeros[i] === '15000'){
-            var segundoSueldo = numeros[i]
-                segundoSueldo = segundoSueldo * 12
-            console.log("Este es 2 =>" + segundoSueldo)
-        }else{
-            var tercersueldo = numeros[i]
-            console.log("Este es 3 =>" + tercersueldo)
-        }
+      var valor = parseInt(numerosDeTexto[i]);
+        if(texto.includes('salario') && valor === 5000){
+          sueldoMensual = valor;
+        }else if(texto.includes('bono') && valor === 10000){
+          bonoAnual = valor;
+        }else if (texto.includes('cursos') && valor === 15000) {
+      cursosMensuales = valor;
     }
+  }   
+  valorAnual = (sueldoMensual * 12) + bonoAnual + (cursosMensuales * 12);
+  return valorAnual;
+
 }
+
+ 
