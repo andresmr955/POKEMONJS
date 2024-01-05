@@ -93,3 +93,34 @@ function circunferenciaCirculo(X){
     return "La circunferencia del circulo es: " + circunferencia 
 }
 console.log(areaCirculo(radioUsuario), "y el ", circunferenciaCirculo(radioUsuario) )
+""
+var cordenada_x1 = prompt("Ingresa la cordenada x1")
+var cordenada_y1 = prompt("Ingresa la cordenada y1")
+var cordenada_x2 = prompt("Ingresa la cordenada x2")
+var cordenada_y2 = prompt("Ingresa la cordenada y2")
+var pendienter = encontrarPendiente(cordenada_x1,cordenada_y1,cordenada_x2, cordenada_y2)
+
+function encontrarPendiente(a, b, y, z){
+    var mPendiente = ((z-b) / (y-a))
+    return  mPendiente 
+}
+
+console.log("La pendiente m es ", pendienter)
+
+const ecuacion = (x) => 2 * x - 2;
+
+// Calcular la pendiente (coeficiente de x)
+const pendientef = 2;
+
+// Calcular la intersección en el eje y (ordenada al origen)
+const interseccionY = ecuacion(0);
+
+// Calcular la intersección en el eje x
+const interseccionX = -(-2) / 2; // Puedes simplificar esta expresión
+
+// Mostrar los resultados
+console.log('Pendiente:', pendientef);
+console.log('Intersección en el eje Y:', interseccionY);
+console.log('Intersección en el eje X:', interseccionX);
+
+console.log("La comparacion es ", pendienter === pendientef)
