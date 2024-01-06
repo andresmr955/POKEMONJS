@@ -124,3 +124,75 @@ console.log('Intersección en el eje Y:', interseccionY);
 console.log('Intersección en el eje X:', interseccionX);
 
 console.log("La comparacion es ", pendienter === pendientef)
+
+
+var valorEquis = parseInt(prompt("Ingresa diferentes valores para encontrar x: "))
+
+function calcularValor(x){
+
+    var solucionEquis = x**2 + 6 * x + 9
+    if(solucionEquis === 0){
+        return "El valor correcto para que Y sea 0 es: => " + x
+    }else{
+        alert("Empieza de nuevo")
+    }
+    console.log(solucionEquis)
+}
+
+calcularValor(valorEquis)
+
+
+
+var horas = parseInt(prompt("Ingrese horas trabajadas por semana: "))
+var tarifa = parseInt(prompt("Cuanto le pagan por hora? "))
+
+const calcularSalario = (x,y) => {
+    const sueldoSemanal = x * y
+    return "Su sueldo es " + sueldoSemanal
+}
+
+calcularSalario(horas, tarifa)
+
+
+const nombrea = prompt("Ingresa tu nombre")
+const apellidoa = prompt("Ingresa tu apellido")
+
+const longitudNombre = (x) => {
+    if(x.length > 7){
+        return `Su nombre ${x} es largo`
+    }else{
+        return `Su nombre ${x} es corto`
+    }
+}
+const comparara = (y) => {
+    if ( nombrea.length > y.length ){
+        return `Su nombre ${nombrea} es mas largo que su apellido ${y}`
+    }else{
+        return `Su apellido ${y} es mas largo que su nombre`
+    }
+}
+
+longitudNombre(nombrea)
+comparara(apellidoa)
+
+
+12 ////////////////
+var myAge 
+var yourAge 
+
+13 ////////////////////////
+
+var edadUsuario = prompt("Cual es tu edad: ")
+
+const examenConduir = (x) => {
+    if(x > 18 || x == 18){
+        return `Tienes ${edadUsuario} años. Tienes la edad suficiente para conducir.`
+    }else{
+            var edadFaltante = 18 - edadUsuario
+         return `Tienes ${edadUsuario} años. Podrás conducir después de ${edadFaltante} años.`
+    }
+
+} 
+examenConduir(edadUsuario)
+
+14 /////////////////////////
