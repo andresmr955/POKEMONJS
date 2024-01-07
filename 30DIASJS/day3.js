@@ -196,3 +196,38 @@ const examenConduir = (x) => {
 examenConduir(edadUsuario)
 
 14 /////////////////////////
+
+var anosUsuario = prompt("Cuantos anos tiene usted?")
+
+
+const calcularSegundos = (x) => {
+    var segundos = x * 365 * 24 * 60 * 60
+    return "Viviste " + segundos + "Segundos"
+}
+
+calcularSegundos(anosUsuario)
+
+15 ///////////////////////////////////////////////////
+
+const now = new Date();
+const ano = now.getFullYear();
+const mes = now.getMonth() + 1;
+const dia = now.getDate();
+const hora = now.getHours();
+const minutos = now.getMinutes();
+
+console.log( ano + "-" + mes + "-" + dia + " " + hora + ":" + minutos)
+console.log(dia + "-" + mes + "-" + ano + " " + hora + ":" + minutos )
+console.log(dia + "/" + mes + "/" + ano + " " + hora + ":" + minutos)
+
+
+Nivel 3
+1////////////////////////////////////
+
+const fechaAhora = new Date();
+
+const obtenerDosCifras = (numero) => ('0' + numero).slice(-2);
+
+const formatoPrincipiantes = `${fechaAhora.getFullYear()}-${obtenerDosCifras(fechaAhora.getMonth() + 1 )}-${obtenerDosCifras(fechaAhora.getDate())} ${obtenerDosCifras(fechaAhora.getHours())}:${obtenerDosCifras(fechaAhora.getMinutes())} `;
+
+console.log("Formato ultimo ejercicio " + formatoPrincipiantes);
