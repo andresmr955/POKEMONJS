@@ -221,13 +221,172 @@ console.log(dia + "-" + mes + "-" + ano + " " + hora + ":" + minutos )
 console.log(dia + "/" + mes + "/" + ano + " " + hora + ":" + minutos)
 
 
-Nivel 3
+//** Nivel 1 Day 4/*/
 1////////////////////////////////////
+var edadUs = parseInt(prompt("Ingrese su edad: "))
+edadUs >= 18? console.log('Tiene la edad suficiente para conducir'):console.log(`Te faltan ${18 -edadUs} años para conducir.`)
+//** eje 2*/
+var yourAge = parseInt(prompt("Ingrese su edad: "))
+var myAge = 24
+if(yourAge > myAge){
+     console.log(`Eres ${yourAge - myAge} anyos mayor que yo`)
+}else{
+      console.log(`Soy ${myAge - yourAge} anyos mayor que tu`)
+}
+//** eje 3*/
 
-const fechaAhora = new Date();
+let a = 4
+let b = 3
 
-const obtenerDosCifras = (numero) => ('0' + numero).slice(-2);
+if (a>b){'a es mayor que b'}
+else{'a es menor que b'}
 
-const formatoPrincipiantes = `${fechaAhora.getFullYear()}-${obtenerDosCifras(fechaAhora.getMonth() + 1 )}-${obtenerDosCifras(fechaAhora.getDate())} ${obtenerDosCifras(fechaAhora.getHours())}:${obtenerDosCifras(fechaAhora.getMinutes())} `;
+a > b? 'a es mayor que b':'a es menor que b';
+'a es mayor que b'
+//** eje 4*/
 
-console.log("Formato ultimo ejercicio " + formatoPrincipiantes);
+var infrese = prompt("Ingrese un numero")
+
+infrese % 2 === 0? `${infrese} es un número par`: `${infrese} es un número impar`;
+//** Nivel 2 Day 4/*/
+var calificacion = prompt("Ingrese la calificacion:")
+if(calificacion >= 80 || calificacion >= 100){"Sacaste (A)"}
+else if(calificacion >= 70 || calificacion >= 89){"Sacaste (B)"}
+else if(calificacion >= 60 || calificacion >= 69){"Sacaste (C)"}
+else if(calificacion >= 50 || calificacion >= 59){"Sacaste (D)"}
+else if(calificacion >= 0 || calificacion >= 49){"Sacaste (F)"}
+else{"Ingresaste la calificacion mal"}
+//** Nivel 2 Day 4, EJE 2/*/
+
+var clima = prompt("Ingrese el mes:")
+clima = clima.toLowerCase()
+
+if(clima === "septiembre" || clima === "octubre" || clima === "noviembre"){"la temporada es Otoño"}
+else if(clima === "diciembre" || clima === "enero" || clima === "febrero"){"la temporada es Invierno"}
+else if(clima === "marzo" || clima === "abril" || clima === "mayo"){"la temporada es Primavera"}
+else if(clima === "junio" || clima === "julio" || clima === "agosto"){"la temporada es Verano"}
+else{"Ingresaste una informacion mal"}
+//** Nivel 2 Day 4, EJE 3/*/
+
+var dia = prompt("Que dia es hoy?")
+dia = dia.toLowerCase()
+switch(dia) {
+    case "lunes":
+       console.log(' Lunes es un día laborable. ')
+       break;
+    case "martes":
+       console.log(' martes es un día laborable. ')
+       break;
+     case "miercoles":
+       console.log(' miercoles es un día laborable. ')
+       break;  
+    case "jueves":
+       console.log(' jueves es un día laborable. ')
+       break;
+    case "viernes":
+       console.log(' viernes es un día laborable. ')
+       break;
+    case "sabado":
+       console.log(' sabado es un día laborable. ')
+       break;
+    case "domingo":
+       console.log(' domingo es un día laborable. ')
+       break;
+    default: console.log("Ingresa un dia de la semana")
+}
+
+//** Nivel 2 Day 4, EJE 4/*/
+
+
+var mes = prompt("Que mes es hoy?")
+mes = mes.toLowerCase()
+switch(mes) {
+    case "enero":
+       console.log(' Enero tiene 31 dias  ')
+       break;
+    case "febrero":
+       console.log(' Febrero tiene 29 dias. ')
+       break;
+     case "marzo":
+       console.log(' Marzo tiene 31 dias. ')
+       break;  
+    case "abril":
+       console.log(' Abril tiene 30 dias ')
+       break;
+    case "mayo":
+       console.log(' Mayo tiene 31 dias ')
+       break;
+    case "junio":
+       console.log(' Junio tiene 30 dias. ')
+       break;
+    case "julio":
+       console.log(' Julio tiene 31 dias. ')
+       break;
+    case "agosto":
+       console.log(' Agosto tiene 31 dias. ')
+       break;
+    case "septiembre":
+       console.log(' Septiembre tiene 30 dias. ')
+       break;
+    case "octubre":
+       console.log(' Octubre tiene 31 dias. ')
+       break;
+    case "noviembre":
+       console.log(' Noviembre tiene 30 dias. ')
+       break;
+    case "diciembre":
+       console.log(' Diciembre tiene tiene 31 dias. ')
+       break;
+    default: console.log("Ingresa un mes del ano")
+}
+
+//**Day 5 Eje 1*/
+//Nivel 1*//
+
+
+const array = []
+const arraycincoEle = ["a","b","c","d","e"]
+console.log(arraycincoEle.length)
+
+var mitad = Math.floor(arraycincoEle.length /2)
+mitad = arraycincoEle[mitad]
+console.log("Este es el primer elemento", arraycincoEle[0], "Este es el ultimo elemento", arraycincoEle[arraycincoEle.length - 1],"Elemento de la mitad", mitad )
+var mixedDataTypes = [true, false, 1 , 2 , 3, "a", "b", "c", null, undefined]
+console.log(mixedDataTypes.length)
+
+const itCompanies  = ["Facebook","Google","Microsoft","Apple","IBM","Oracle","Amazon"]
+console.log(itCompanies)
+for (let index = 0; index < itCompanies.length; index++) {
+    const cambiado = itCompanies[index].toUpperCase();;
+    console.log(cambiado)
+    
+}
+
+const unaOracion = itCompanies.join(", ");
+console.log(`${unaOracion} son grandes empresas de TI`)
+
+console.log(itCompanies.includes("Facebook")?`Existe ${"Facebook"}`: `No existe`)
+
+const empresasIT = ["Facebook", "Google", "Amazon", "Microsoft", "Apple", "Android", "IBM"]
+
+const empresasCoN = []
+
+for (let i = 0; i < empresasIT.length; i++) {
+    var contador = 0
+    var cambiarMinu = empresasIT[i].toLowerCase()
+    for (let j = 0; j < empresasIT.length; j++) {
+        empresasIT[i][j] === "o"? contador ++:undefined;
+
+    }
+
+      contador > 1? empresasCoN.push(empresasIT[i]): undefined;
+    }
+
+
+console.log(empresasCoN)
+
+console.log(empresasIT.sort())
+console.log(empresasIT.reverse())
+console.log(itCompanies.splice(0,3)) --> Cortar las primeras 3 empresas del array
+console.log(itCompanies.splice(-3, 3)) --> Cortar las ultimos 3 empresas del array
+console.log(itCompanies.splice(3, 1)) --> Cortar las ultimos 3 empresas del array
