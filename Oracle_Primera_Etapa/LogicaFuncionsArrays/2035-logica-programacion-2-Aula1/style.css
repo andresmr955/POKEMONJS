@@ -64,8 +64,11 @@ body::before {
     margin-top: 2rem;
 }
 
+
+
 .container__boton:disabled {
     background: #898989;
+
 }
 
 .container__texto {
